@@ -1,4 +1,3 @@
-goog.provide('closureexample.init');
     goog.require('goog.dom');
     goog.require('goog.editor.Command');
     goog.require('goog.editor.Field');
@@ -14,12 +13,6 @@ goog.provide('closureexample.init');
     goog.require('goog.editor.plugins.UndoRedo');
     goog.require('goog.ui.editor.DefaultToolbar');
     goog.require('goog.ui.editor.ToolbarController');
- 
-closureexample.init = function( appTitle, parent ){
-    var header =  {'style':'background:#FF0000'};
-    var content = "Application " + appTitle + " Starting"
-    var element = goog.dom.createDom( 'div', header, content );
-    goog.dom.appendChild( parent, element );
 
     var myField = new goog.editor.Field('editMe');
 
@@ -62,7 +55,7 @@ var buttons = [
 
 myField.makeEditable();
 
-};
+
 
 
 

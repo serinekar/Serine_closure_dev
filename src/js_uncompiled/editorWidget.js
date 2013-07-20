@@ -1,10 +1,5 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Closure Test</title>
-        <script type="text/javascript" src="../lib/closure/goog/base.js"></script>
-   <script>
-    goog.require('goog.dom');
+goog.provide('closureeditor.init'); 
+   goog.require('goog.dom');
     goog.require('goog.editor.Command');
     goog.require('goog.editor.Field');
     goog.require('goog.editor.plugins.BasicTextFormatter');
@@ -19,34 +14,10 @@
     goog.require('goog.editor.plugins.UndoRedo');
     goog.require('goog.ui.editor.DefaultToolbar');
     goog.require('goog.ui.editor.ToolbarController');
-  </script>
-  <link rel="stylesheet" href="editorCss/demo.css">
+   
+     closureeditor.init= function( ) {
 
-  <link rel="stylesheet" href="editorCss/button.css" />
-  <link rel="stylesheet" href="editorCss/dialog.css" />
-  <link rel="stylesheet" href="editorCss/linkbutton.css" />
-  <link rel="stylesheet" href="editorCss/menu.css">
-  <link rel="stylesheet" href="editorCss/menuseparator.css">
-  <link rel="stylesheet" href="editorCss/menuitem.css">
-  <link rel="stylesheet" href="editorCss/tab.css" />
-  <link rel="stylesheet" href="editorCss/tabbar.css" />
-  <link rel="stylesheet" href="editorCss/toolbar.css" />
-  <link rel="stylesheet" href="editorCss/colormenubutton.css" />
-  <link rel="stylesheet" href="editorCss/palette.css" />
-  <link rel="stylesheet" href="editorCss/colorpalette.css" />
-  <link rel="stylesheet" href="editorCss/bubble.css" />
-  <link rel="stylesheet" href="editorCss/dialog.css" />
-  <link rel="stylesheet" href="editorCss/linkdialog.css" />
-  <link rel="stylesheet" href="editorCss/editortoolbar.css" />
-
-    </head>
-    <body>
-
-  	<div id='toolbar' style='width:602px'></div>
-	<div id="editMe"></div>
- <script>
-// Create an editable field.
-  var myField = new goog.editor.Field('editMe');
+  var myField = new goog.editor.Field('editorDiv');
 
   // Create and register all of the editing plugins you want to use.
   myField.registerPlugin(new goog.editor.plugins.BasicTextFormatter());
@@ -62,7 +33,7 @@
       new goog.editor.plugins.LinkDialogPlugin());
   myField.registerPlugin(new goog.editor.plugins.LinkBubble());
 
-  // Specify the buttons to add to the toolbar, using built in default buttons.
+
   var buttons = [
     goog.editor.Command.BOLD,
     goog.editor.Command.ITALIC,
@@ -95,8 +66,12 @@
 
   myField.makeEditable();
 
-  </script>
+}
+goog.dom.getElement('editorDiv').innerHTML = 'editorDiv';
+
+// closureeditor.init();
 
 
-    </body>
-</html>
+
+
+
