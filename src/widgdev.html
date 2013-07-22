@@ -1,0 +1,57 @@
+<html>
+  <head>
+
+	<script type="text/javascript" src="js/widgdev.js"></script>
+  
+  <link rel="stylesheet" href="editorCss/left-panel.css">
+  <link rel="stylesheet" href="editorCss/demo.css">
+
+  <link rel="stylesheet" href="editorCss/button.css" />
+  <link rel="stylesheet" href="editorCss/dialog.css" />
+  <link rel="stylesheet" href="editorCss/linkbutton.css" />
+  <link rel="stylesheet" href="editorCss/menu.css">
+  <link rel="stylesheet" href="editorCss/menuseparator.css">
+  <link rel="stylesheet" href="editorCss/menuitem.css">
+  <link rel="stylesheet" href="editorCss/tab.css" />
+  <link rel="stylesheet" href="editorCss/tabbar.css" />
+  <link rel="stylesheet" href="editorCss/toolbar.css" />
+  <link rel="stylesheet" href="editorCss/colormenubutton.css" />
+  <link rel="stylesheet" href="editorCss/palette.css" />
+  <link rel="stylesheet" href="editorCss/colorpalette.css" />
+  <link rel="stylesheet" href="editorCss/bubble.css" />
+  <link rel="stylesheet" href="editorCss/dialog.css" />
+  <link rel="stylesheet" href="editorCss/linkdialog.css" />
+  <link rel="stylesheet" href="editorCss/editortoolbar.css" />
+  </head>
+  <body>
+
+    <div class= "left-panel">
+
+	<div id="btn1" class="goog-custom-button goog-custom-button-collapse-left"> <div >Editor</div></div> 
+	
+	<div id="btn2" class="goog-custom-button goog-custom-button-collapse-left goog-custom-button-collapse-left"> <div >List</div> </div>
+
+	<div id="btn3" class="goog-custom-button goog-custom-button-collapse-left goog-custom-button-collapse-left"> <div >GetContent</div> </div> 
+
+ 	<div id="btn4" class="goog-custom-button goog-custom-button-collapse-left goog-custom-button-collapse-left"> <div >SetContent</div> </div> 
+       
+    </div> 
+
+
+  	<div id='toolbar' style='width:602px'></div>
+	<div id='editorDiv'></div>
+
+
+
+    <script type="text/javascript">
+	
+
+       	widjdev.init.leftPanelsetup('btn1', function() {alert("Editor")} );
+	widjdev.init.leftPanelsetup('btn2', function() {alert("Editor")} );
+        widjdev.init.leftPanelsetup('btn3', function() {alert("GetContent")} );
+  	widjdev.init.leftPanelsetup('btn4', function() {alert("SetContent")} );
+	widjdev.init();
+
+    </script>
+  </body>
+</html>

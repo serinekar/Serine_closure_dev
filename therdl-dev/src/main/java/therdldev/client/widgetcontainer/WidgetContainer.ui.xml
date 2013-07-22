@@ -9,7 +9,7 @@
         background-color: #F60;
         }
         .westPanel {
-        background-color: #EEE;
+
         }
         .northPanel {
         background-color: #39F;
@@ -28,8 +28,7 @@
             </g:FlowPanel>
         </g:north>
         <g:west size='15'>
-            <g:FlowPanel styleName="{style.westPanel}">
-                <g:Label>This is the WEST panel</g:Label>
+            <g:FlowPanel  ui:field= "leftPanel" styleName="{style.westPanel}">
             </g:FlowPanel>
         </g:west>
         <g:center>

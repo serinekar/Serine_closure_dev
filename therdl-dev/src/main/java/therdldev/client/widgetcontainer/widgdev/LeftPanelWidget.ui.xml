@@ -1,0 +1,27 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+             xmlns:g="urn:import:com.google.gwt.user.client.ui">
+
+    <ui:with field="res" type="therdldev.client.cssbundles.Resources"/>
+    <ui:style>
+
+    </ui:style>
+
+
+    <g:HTMLPanel styleName=" {res.leftPanelCss.getText}">
+
+        <div class= "left-panel">
+
+            <div id="btn1" class="goog-custom-button goog-custom-button-collapse-left"> <div >Editor</div></div>
+
+            <div id="btn2" class="goog-custom-button goog-custom-button-collapse-left goog-custom-button-collapse-left"> <div >List</div> </div>
+
+            <div id="btn3" class="goog-custom-button goog-custom-button-collapse-left goog-custom-button-collapse-left"> <div >GetContent</div> </div>
+
+            <div id="btn4" class="goog-custom-button goog-custom-button-collapse-left goog-custom-button-collapse-left"> <div >SetContent</div> </div>
+
+        </div>
+
+    </g:HTMLPanel>
+
+</ui:UiBinder>

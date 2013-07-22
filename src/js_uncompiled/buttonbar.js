@@ -12,10 +12,7 @@ goog.provide('buttonbar.setup');
     goog.require('goog.ui.CustomButton');
     goog.require('goog.ui.CustomButtonRenderer');
     goog.require('goog.ui.decorate');
-/*
- * onClickCallback will be passed an ActionEvent when the button is clicked.
- *   http://closure-library.googlecode.com/svn/docs/class_goog_events_ActionEvent.html
- */
+
 buttonbar.setup = function(name, onClickCallback) {
     var button = goog.ui.decorate(goog.dom.getElement(name));
     button.setDispatchTransitionEvents(goog.ui.Component.State.ACTION, true);

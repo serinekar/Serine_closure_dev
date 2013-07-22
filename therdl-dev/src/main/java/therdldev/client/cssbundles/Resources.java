@@ -10,9 +10,11 @@ public interface Resources extends ClientBundle {
 
 
     @CssResource.NotStrict
-	@Source("styles.css")
+	@Source("editorWidget.css")
     public CssResource editorCss();
-	
 
+    @CssResource.NotStrict
+    @Source("leftPanel.css")
+    public CssResource leftPanelCss();
 
 }

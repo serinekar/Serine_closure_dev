@@ -8,6 +8,7 @@ import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
 import therdldev.client.widgetcontainer.widgdev.EditorClientWidget;
+import therdldev.client.widgetcontainer.widgdev.LeftPanelWidget;
 
 /**
  * Created with IntelliJ IDEA.
@@ -27,6 +28,9 @@ public class WidgetContainer  extends Composite {
 
     @UiField
     FlowPanel widgBox;
+
+    @UiField
+    FlowPanel leftPanel;
 
 
 
