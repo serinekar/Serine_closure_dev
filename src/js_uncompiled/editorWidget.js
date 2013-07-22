@@ -67,9 +67,7 @@ goog.provide('closureeditor.init');
   myField.makeEditable();
 
 }
-goog.dom.getElement('editorDiv').innerHTML = 'editorDiv';
-
-// closureeditor.init();
+goog.exportSymbol('closureeditor.init',closureeditor.init);
 
 
 

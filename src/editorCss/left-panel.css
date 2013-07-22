@@ -1,0 +1,42 @@
+div.left-panel {
+    position: relative; /* Enable absolute positioning for children and pseudo elements */
+    width: 200px;
+    padding: 10px;
+
+
+
+} 
+
+div#btn1  {
+    display: block;
+    color: blue;
+    padding: 10px 20px;
+
+}
+
+div#btn2  {
+    display: block;
+    color: blue;
+    padding: 10px 20px;
+
+}
+
+
+div#btn3  {
+    display: block;
+    color: blue;
+    padding: 10px 20px;
+
+}
+
+
+div#btn4  {
+    display: block;
+    color: blue;
+    padding: 10px 20px;
+
+}
+
+
+
+

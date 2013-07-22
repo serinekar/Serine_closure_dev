@@ -1,0 +1,25 @@
+ body.webkitOverflowScrolling  {
+	color: black;
+	margin: 0px;
+	border: 0px;
+	padding: 0px;
+	background: white;
+	direction: ltr;
+}
+
+.wrappingLayoutPanel {
+ height:100%;
+ width:100%;
+}
+
+.layoutPanel {
+  height:100%;
+  width:100%;
+  }
+
+.gwt-PopupPanel  {
+
+margin:400px o o 300px;;
+
+
+}
