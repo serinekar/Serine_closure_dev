@@ -29,8 +29,6 @@ public class WidgetContainer  extends Composite {
     @UiField
     FlowPanel widgBox;
 
-    @UiField
-    FlowPanel leftPanel;
 
 
 

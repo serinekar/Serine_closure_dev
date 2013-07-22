@@ -28,11 +28,13 @@ goog.provide('widjdev.init');
     goog.require('goog.ui.CustomButton');
     goog.require('goog.ui.CustomButtonRenderer');
     goog.require('goog.ui.decorate');
+
+var myField;
    
 
 widjdev.init= function( ) {
 
-var myField = new goog.editor.Field('editorDiv');
+myField = new goog.editor.Field('editorDiv');
 
 // Create and register all of the editing plugins you want to use.
 myField.registerPlugin(new goog.editor.plugins.BasicTextFormatter());
@@ -81,8 +83,6 @@ new goog.ui.editor.ToolbarController(myField, myToolbar);
 
 myField.makeEditable();
 
-
-
 }
 
 widjdev.init.leftPanelsetup = function (name, onClickCallback) {
@@ -91,5 +91,19 @@ button.setDispatchTransitionEvents(goog.ui.Component.State.ACTION, true);
 goog.events.listen(button, goog.ui.Component.EventType.ACTION, onClickCallback);
 }
 
-goog.exportSymbol('widjdev.init.leftPanelsetup', widjdev.init.leftPanelsetup);
+widjdev.init.getcontents = function () {
+
+  return myField.getCleanContents();
+
+}
+
+
 goog.exportSymbol('widjdev.init', widjdev.init);
+goog.exportSymbol('widjdev.init.leftPanelsetup', widjdev.init.leftPanelsetup);
+goog.exportSymbol('widjdev.init.getcontents', widjdev.init.getcontents);
+
+
+
+
+
+

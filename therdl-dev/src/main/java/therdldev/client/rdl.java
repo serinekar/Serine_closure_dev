@@ -6,6 +6,7 @@ import com.google.gwt.dom.client.Style;
 import com.google.gwt.user.client.ui.*;
 import therdldev.client.widgetcontainer.WidgetContainer;
 import therdldev.client.widgetcontainer.widgdev.EditorClientWidget;
+import therdldev.client.widgetcontainer.widgdev.LeftPanelWidget;
 
 
 import java.util.logging.Logger;
@@ -33,9 +34,9 @@ public class rdl implements EntryPoint {
       HTML html = new HTML();
       html.setHTML(shtml);
       EditorClientWidget closureEditor = new EditorClientWidget();
+
       wrappingLayoutPanel.addWidget(closureEditor);
       closureEditor.setVisible(true);
-
 
     }
 

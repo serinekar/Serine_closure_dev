@@ -14,11 +14,11 @@
 
             <div id="btn1" class="goog-custom-button goog-custom-button-collapse-left"> <div >Editor</div></div>
 
-            <div id="btn2" class="goog-custom-button goog-custom-button-collapse-left goog-custom-button-collapse-left"> <div >List</div> </div>
+            <div id="btn2" class="goog-custom-button goog-custom-button-collapse-left"> <div >List</div> </div>
 
-            <div id="btn3" class="goog-custom-button goog-custom-button-collapse-left goog-custom-button-collapse-left"> <div >GetContent</div> </div>
+            <div id="btn3" class="goog-custom-button goog-custom-button-collapse-left"> <div >GetContent</div> </div>
 
-            <div id="btn4" class="goog-custom-button goog-custom-button-collapse-left goog-custom-button-collapse-left"> <div >SetContent</div> </div>
+            <div id="btn4" class="goog-custom-button goog-custom-button-collapse-left"> <div >SetContent</div> </div>
 
         </div>
 
