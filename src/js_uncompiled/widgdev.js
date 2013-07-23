@@ -97,10 +97,18 @@ widjdev.init.getcontents = function () {
 
 }
 
+widjdev.init.setcontents = function ( html) {
+
+   myField.setHtml(false, html, true, false);
+
+}
+
+
 
 goog.exportSymbol('widjdev.init', widjdev.init);
 goog.exportSymbol('widjdev.init.leftPanelsetup', widjdev.init.leftPanelsetup);
 goog.exportSymbol('widjdev.init.getcontents', widjdev.init.getcontents);
+goog.exportSymbol('widjdev.init.setcontents', widjdev.init.setcontents);
 
 
 

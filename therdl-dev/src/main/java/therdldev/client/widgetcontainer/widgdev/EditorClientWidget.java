@@ -60,7 +60,9 @@ public class EditorClientWidget extends Composite  {
 
     }
     public void btnSetContentClick() {
-        Window.alert("Content");
+        String temp = "this is the test content";
+        setContent(temp);
+        Window.alert("Set Content");
 
     }
 
@@ -69,7 +71,9 @@ public class EditorClientWidget extends Composite  {
     }-*/;
 
 
-
+    private native void setContent(String t) /*-{
+       $wnd.widjdev.init.setcontents(t);
+    }-*/;
 
 
 }

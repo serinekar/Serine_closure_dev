@@ -19,3 +19,4 @@ please view open issues and contribute
 http://blog.broc.seib.net/2011/05/mixing-google-closure-with-gwt.html
 https://developers.google.com/closure/library/
 http://closure-library.googlecode.com/svn/trunk/closure/goog/ui/
+http://docs.closure-library.googlecode.com/git/namespace_goog_editor.html
