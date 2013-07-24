@@ -1,0 +1,228 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:l="urn:import:com.torbinsky.client.ui.lab"
+	xmlns:c="urn:import:com.torbinsky.client.ui.lab.components" xmlns:component="urn:import:com.torbinsky.client.ui.component">
+	<ui:style>
+		.labView {
+			margin-bottom: 10px;
+			min-height: 768px;
+			min-width: 1024px;
+		}
+		
+		.labViewHeading {
+			padding: 2px 0 0 5px;
+			color: #fff;
+			position: relative;
+			height: 35px;
+			font-size: 18px;
+			font-weight: bold;
+			background: #6c6d70;
+			background: -moz-linear-gradient(top, #6c6d70 0%, #595a5c 100%);
+			background: literal("-webkit-gradient(linear, left top, left bottom, color-stop(0%,#6c6d70), color-stop(100%,#595a5c))"
+				);
+			background: -webkit-linear-gradient(top, #6c6d70 0%, #595a5c 100%);
+			background: -o-linear-gradient(top, #6c6d70 0%, #595a5c 100%);
+			background: -ms-linear-gradient(top, #6c6d70 0%, #595a5c 100%);
+			background: linear-gradient(top, #6c6d70 0%, #595a5c 100%);
+			border: 1px solid #4a4a4a;
+			-webkit-border-radius: 5px 5px 0 0;
+			-moz-border-radius: 5px 5px 0 0;
+			border-radius: 5px 5px 0 0;
+			-webkit-box-shadow: inset 0 1px 1px #8e8f93;
+			-moz-box-shadow: inset 0 1px 1px #8e8f93;
+			box-shadow: inset 0 1px 1px #8e8f93;
+			vertical-align: center;
+		}
+		
+		.labViewHeading div {
+			
+		}
+		
+		.labViewHeadingTitleText {
+			margin-top: 5px;
+			display: block;
+			float: left;
+			font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+			color: #F5F5F5;
+			font-size: 16px;
+			text-shadow: 1px 1px 1.25px #333333;
+		}
+		
+		.labViewContent {
+			border: 1px solid #ccc;
+			-webkit-box-shadow: 0 1px 1px #fff;
+			-moz-box-shadow: 0 1px 1px #fff;
+			box-shadow: 0 1px 1px #fff;
+			position: relative;
+			background: #f9f9f9;
+			padding: 10px;
+		}
+		
+		.labViewUnpaddedContent .labViewContent {
+			padding: 0px;
+		}
+		
+		.labViewHeadingActions {
+			float: right;
+			padding-right: 10px;
+			font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+			color: #F5F5F5;
+			font-size: 12px;
+			text-shadow: 1px 1px 1.25px #333333;
+			margin-top: 2px;
+		}
+		
+		.labViewHeadingActions button {
+			display: inline;
+		}
+		
+		.labViewHeadingActions button {
+			display: inline;
+		}
+		
+		.leftCol {
+			float: left;
+			height: 100%;
+			min-width: 1024px;
+		}
+		
+		.rightCol {
+			float: right;
+			min-width: 100px;
+			border-left: 1px solid #888;
+			padding-left: 10px;
+			margin-left: 10px;
+			vertical-align: top;
+		}
+		
+		.clearfix:after {
+			content: ".";
+			display: block;
+			clear: both;
+			visibility: hidden;
+			line-height: 0;
+			height: 0;
+		}
+		
+		.clearfix {
+			display: inline-block;
+		}
+		
+		html[xmlns] .clearfix {
+			display: block;
+		}
+		
+		* html .clearfix {
+			height: 1%;
+		}
+		
+		.titleSubheading {
+			
+		}
+		
+		.titleSubheading button {
+			
+		}
+		
+		.statusTxt {
+			font-weight: normal;
+			font-size: 1.75em;
+			letter-spacing: .2em;
+			line-height: 1.1em;
+			margin: 0px;
+			text-align: center;
+		}
+		
+		.menuLink {
+			clear: both;
+			padding-top: 5px;
+			padding-bottom: 5px;
+			display: block;
+		}
+		
+		.menuLink.close {
+			margin-top: 15px;
+			font-size: 15px;
+			margin-left: 60px;
+		}
+		
+		.menu {
+			position: absolute;
+			border: 1px solid #ccc;
+			display: none;
+			background-color: white;
+			z-index: 999;
+			width: 200px;
+			cursor: pointer;
+			padding: 10px;
+			-webkit-box-shadow: 0 3px 3px #ccc;
+			-moz-box-shadow: 0 3px 3px #ccc;
+			box-shadow: 0 1px 1px #ccc;
+			-webkit-border-radius: 5px 5px 0 0;
+			-moz-border-radius: 5px 5px 0 0;
+			border-radius: 5px 5px 0 0;
+		}
+		.mainPanel{
+			min-width: 1300px;
+			max-width: 1440px;
+			margin: 0 auto;
+		}
+	</ui:style>
+	<g:HTMLPanel ui:field="mainPnl" styleName="{style.mainPanel}">
+		<div
+			style="position: absolute; z-index: 999; left: 5px; width: 50px; height: 32px; top: 5px; cursor: pointer;">
+			
+		</div>
+		<div
+			style="position: absolute; z-index: 999; left: 700px; width: 180px; height: 32px; top: 5px; cursor: pointer;">
+			
+		</div>
+		<div ui:field="menuDiv" class="{style.menu}">
+			<g:Button ui:field="downloadPdfBtn">Download PDF Manual</g:Button>
+			<span style="height: 3px; display: block;"></span>
+			<g:Button ui:field="endLabSessionBtn">End Lab Session</g:Button>
+			<g:Anchor ui:field="surveyLink" styleName="{style.menuLink}">Take the Survey</g:Anchor>
+			<g:Anchor ui:field="visitCommunity" styleName="{style.menuLink}">Visit the Lab
+				Community</g:Anchor>
+			<g:Anchor ui:field="questions" styleName="{style.menuLink}">Questions? Email
+				Us!</g:Anchor>
+			<g:Anchor ui:field="homeLink" href="/" styleName="{style.menuLink}">Return to Home</g:Anchor>
+			<g:Anchor ui:field="closeMenuLink" styleName="{style.menuLink} {style.close}">Close Menu</g:Anchor>
+		</div>
+		<div class="{style.labView}">
+			<div class="{style.labViewHeading}">
+				<span class="{style.labViewHeadingTitleText}" ui:field="labTitle">
+					
+				</span>
+				<span class="{style.clearfix}"></span>
+				<div class="{style.labViewHeadingActions}" ui:field="titleAction">
+					<g:Button ui:field="headerEndLabBtn">End Lab</g:Button>
+					<component:TimeCountdownWidget ui:field="sessionTimer"></component:TimeCountdownWidget>
+					<g:Button ui:field="menuBtn">Send Your Feedback</g:Button>
+				</div>
+			</div>
+			<div class="{style.labViewContent}" ui:field="contentPanel">
+				<table>
+					<tr>
+						<td valign="top">
+							<!-- LEFT COLUMN -->
+							<div ui:field="leftCol" class="{style.leftCol}">
+								<div ui:field="contentDiv">
+									<g:FlowPanel ui:field="disconnectedPnl" styleName="{style.statusTxt}"></g:FlowPanel>
+									<g:SimplePanel ui:field="connectedPnl" visible="false" />
+								</div>
+							</div>
+						</td>
+						<td valign="top">
+							<!-- RIGHT COLUMN -->
+							<g:SimplePanel ui:field="rightCol" styleName="{style.rightCol}">
+
+							</g:SimplePanel>
+						</td>
+					</tr>
+				</table>
+				<div style="clear: both;" />
+			</div>
+		</div>
+	</g:HTMLPanel>
+</ui:UiBinder> 

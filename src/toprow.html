@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<!--script type="text/javascript" src="js/toprow.js"></script--->
+
+   <script type="text/javascript" src="js/widjdevComponent.js"></script>
+  <script type="text/javascript" src="../lib/closure/goog/base.js"></script>
+   <script>
+    goog.require('goog.dom');
+   </script>
+  <link rel="stylesheet" href="editorCss/common.css">
+  <link rel="stylesheet" href="editorCss/demo.css">
+  <link rel="stylesheet" href="editorCss/menu.css">
+  <link rel="stylesheet" href="editorCss/menuseparator.css">
+  <link rel="stylesheet" href="editorCss/menuitem.css">
+
+  <style>
+	.widjdev-Component {
+	margin: 10px;
+	}
+  </style>
+  </head>
+  <body>
+
+  <div id="toprowContainer">
+		<span id = "toprow"></span>
+  </div>
+
+  <script>
+	    var menuLabel1 = new widjdev.Component("label 1 txt ");
+  	    var menuLabel2 = new widjdev.Component("label 2 txt ");
+
+            var div = goog.dom.getElement("toprow");
+	    <!--render() method calls createDom(), places the resulting element_ in the document, and then calls enterDocument() -->	
+	    menuLabel1.render(div);
+	    menuLabel2.render(div);
+
+
+
+
+  </script>
+  </body>
+</html>

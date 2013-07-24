@@ -7,3 +7,6 @@ lib/closure/bin/build/closurebuilder.py --root=lib/ --root=js_uncompiled/ --name
 
 // widgdev
 lib/closure/bin/build/closurebuilder.py --root=lib/ --root=js_uncompiled/ --namespace="widjdev.init" --output_mode=compiled --compiler_jar=compiler.jar --compiler_flags="--compilation_level=SIMPLE_OPTIMIZATIONS" > js/widgdev.js
+
+// component
+lib/closure/bin/build/closurebuilder.py --root=lib/ --root=js_uncompiled/ --namespace="widjdev.Component" --output_mode=compiled --compiler_jar=compiler.jar --compiler_flags="--compilation_level=SIMPLE_OPTIMIZATIONS" > js/widjdevComponent.js

@@ -1,0 +1,58 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:style>
+		.main div[foo] {
+			padding: 10px;
+		}
+		.main div[foo]:hover {
+			background-color: #CEDEF4;
+			border: 0px solid #CEDEF4;
+		}
+		.main table {
+			width: 98%;
+			margin: 0 auto;
+		}
+		
+		.main table:hover {
+			
+		}
+		
+		.title {
+			font-weight: bold;
+			font-size: 15px;
+		}
+		.time {
+		
+		}
+		.scheduleBtn input, .scheduleBtn button{
+			
+		}
+		.takeBtn input, .takeBtn button{
+			
+		}
+	</ui:style>
+	<g:HTMLPanel addStyleNames="{style.main}">
+		<div foo="">
+			<table>
+				<tr>
+					<td>
+						<g:Label ui:field="labTitleLbl" styleName="{style.title}"></g:Label>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<g:Label ui:field="schedTimeLbl" styleName="{style.time}"></g:Label>
+					</td>
+				</tr>			
+				<tr>
+					<td rowspan="3" align="right" class="{style.takeBtn}">
+						<g:FlowPanel ui:field="buttonPnl">
+							<!-- <g:Anchor ui:field="cancelAnchor">Cancel</g:Anchor> -->						
+						</g:FlowPanel>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</g:HTMLPanel>
+</ui:UiBinder> 

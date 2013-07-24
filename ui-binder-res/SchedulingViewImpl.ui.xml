@@ -1,0 +1,63 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:dp="urn:import:com.google.gwt.user.datepicker.client"  >
+	
+	
+	<ui:style >
+		.fieldLabel {
+			font-weight: bold;
+			font-size: 14px;
+		}
+		.formRow > td {
+			padding-bottom: 10px;
+		}
+		.datePicker {
+			width: 150px;
+			height: 30px;
+		}
+		.spacer{
+			margin-right: 20px;
+		}
+		.mainPnl{
+			text-align: left;
+			
+		}
+	</ui:style>
+	
+	<g:HTMLPanel styleName="{style.mainPnl}">		
+		<table>
+			<!-- LAB CHOICE -->
+			<tr class="{style.formRow}">
+				<td><g:Label styleName="{style.fieldLabel}">What lab would you like to take?</g:Label></td>
+			</tr>
+			<tr class="{style.formRow}">
+				<td><g:ListBox ui:field="labChoiceBox"></g:ListBox></td>
+			</tr>
+			<!-- DATE CHOICE -->
+			<tr class="{style.formRow}">
+				<td><g:Label styleName="{style.fieldLabel}">What day would you like your lab to start on?</g:Label></td>
+			</tr>
+			<tr class="{style.formRow}">
+				<td><g:Widget ui:field="datePicker" styleName="{style.datePicker}" /></td>
+			</tr>
+			<!-- TIME CHOICE -->
+			<tr class="{style.formRow}">
+				<td><g:Label styleName="{style.fieldLabel}">What time would you like your lab to start at?</g:Label></td>
+			</tr>
+			<tr class="{style.formRow}">
+				<td><g:ListBox ui:field="startTimeBox"></g:ListBox></td>
+			</tr>
+			<tr class="{style.formRow}">
+				<td><g:Label ui:field="chosenScheduleDetailsLbl"></g:Label></td>
+			</tr>
+			<!-- ACTIONS -->
+			<tr class="{style.formRow}">
+				<td><g:Button ui:field="scheduleBtn" enabled="false">Schedule Lab</g:Button><span class="{style.spacer}"> </span><g:Anchor ui:field="cancelLink">Cancel</g:Anchor></td>
+			</tr>
+		</table>
+		<g:FlowPanel ui:field="schedulingInProgPnl" visible="false">
+			
+		</g:FlowPanel>
+	</g:HTMLPanel>
+</ui:UiBinder> 
