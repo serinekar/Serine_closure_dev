@@ -1,7 +1,11 @@
 package therdldev.client.widgetcontainer.widgdev;
 
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.dom.client.SpanElement;
+import com.google.gwt.dom.client.Style;
 import com.google.gwt.uibinder.client.UiBinder;
+import com.google.gwt.uibinder.client.UiField;
+import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Widget;
@@ -17,6 +21,10 @@ public class EditorClientWidget extends Composite  {
 	interface EditorClientViewUiBinder extends
 			UiBinder<Widget, therdldev.client.widgetcontainer.widgdev.EditorClientWidget> {
 	}
+
+    @UiField
+    SpanElement editorview;
+
 
 	public EditorClientWidget() {
         Resources.INSTANCE.editorCss().ensureInjected();
@@ -48,8 +56,12 @@ public class EditorClientWidget extends Composite  {
 
     public void btnEditorClick() {
         Window.alert("Editor");
+        editorview.getStyle().setDisplay(Style.Display.BLOCK);
+
+
     }
     public void btnListClick() {
+        editorview.getStyle().setDisplay(Style.Display.NONE);
         Window.alert("List");
 
     }
@@ -73,6 +85,13 @@ public class EditorClientWidget extends Composite  {
 
     private native void setContent(String t) /*-{
        $wnd.widjdev.init.setcontents(t);
+    }-*/;
+
+
+    private native void hideEditor() /*-{
+    $wnd.document.getElementById('editorview').display= 'none';
+
+
     }-*/;
 
 

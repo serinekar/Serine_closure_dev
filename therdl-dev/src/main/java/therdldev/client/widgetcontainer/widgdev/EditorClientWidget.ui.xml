@@ -41,11 +41,14 @@
 
         </div>
 
-        <div style ="position:fixed;left:200px;">
+
+
+        <span ui:field="editorview" style ="position:fixed;left:200px;">
             <div id='toolbar' style='width:602px'></div>
-            <div id='editorDiv'></div>
-        </div>
+            <div id='editorDiv'></div> </span>
 
 
+
+                                                           -
     </g:HTMLPanel>
 </ui:UiBinder> 
