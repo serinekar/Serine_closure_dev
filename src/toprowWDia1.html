@@ -7,6 +7,7 @@
   <script type="text/javascript" src="../lib/closure/goog/base.js"></script>
    <script>
     goog.require('goog.dom');
+    goog.require('goog.ui.Dialog');
    </script>
   <link rel="stylesheet" href="editorCss/common.css">
   <link rel="stylesheet" href="editorCss/demo.css">
@@ -24,40 +25,70 @@
   	}
 	#toprowContainer, #secondrowContainer {
 	margin: 10px;
+	width: 530px;
+	height:30px;
 	}
+
+ 	.modal-dialog {
+    	width: 630px;
+  	}
+	.modal-dialog-content {
+	width: 530px;
+	height: 300px;
+		}
 
   </style>
   </head>
   <body>
-
   
-
-  <div id="toprowContainer">
-		<span id = "toprow1"></span><span id = "toprow2"></span>
-  </div>
-
-  <div id="secondrowContainer">
-	<span id = "trCombo1"></span>	
-  </div>
-
-
+	<button  onclick="setEditorWidjet()">Open Editor </button>
 
 
   <script>
-	    var menuLabel1 = new widjdev.Component("acitve label 1");
+	var dialog1;
+ 	 
+
+       function setEditorWidjet() {
+   		
+		if(!dialog1) { 
+	        dialog1 = new goog.ui.Dialog(); 
+		dialog1.setContent(
+		"<div id='toprowContainer'><span id = 'toprow1'></span><span id = 'toprow2'></span></div><div id='secondrowContainer'><span id = 'trCombo1'></span></div>");
+	        dialog1.setModal(false);
+	        dialog1.setVisible(true);
+   	        setDialog();
+
+		}
+		else  {  
+		dialog1.setVisible(true);
+			}
+
+
+		 }
+
+   function setDialog() {
+	    var menuLabel1 = new widjdev.Component('acitve label 1');
   	    var menuLabel2 = new widjdev.Component("active label 2");
  	    var combo1 = createTestComboBox() ;
-            var div1 = goog.dom.getElement("toprow1");
-	    var divcombo1  = goog.dom.getElement("trCombo1");
-  	    var div2 = goog.dom.getElement("toprow2");
+            var div1;
+	    var divcombo1;
+  	    var div2;
 
-	    <!--render() method calls createDom(), places the resulting element_ in the document, and then calls enterDocument() -->	
-	    menuLabel1.render(div2);
-	    menuLabel2.render(div2);
+	    div1 = goog.dom.getElement('toprow1');
+            divcombo1  = goog.dom.getElement('trCombo1');
+	    div2 = goog.dom.getElement('toprow2');
+	    menuLabel1.render(div1);
+ 	    menuLabel2.render(div2);
  	    combo1.render(divcombo1);
- 	    goog.events.listen(combo1, 'change', handleChangeEvent);
+    	    goog.events.listen(combo1, 'change', handleChangeEvent);
+ 	
+	
 
-	   function handleChangeEvent(e) {
+	}
+
+
+
+   function handleChangeEvent(e) {
     		alert( e.target.getValue());
   		}
 

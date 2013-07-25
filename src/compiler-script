@@ -10,3 +10,6 @@ lib/closure/bin/build/closurebuilder.py --root=lib/ --root=js_uncompiled/ --name
 
 // component
 lib/closure/bin/build/closurebuilder.py --root=lib/ --root=js_uncompiled/ --namespace="widjdev.Component" --output_mode=compiled --compiler_jar=compiler.jar --compiler_flags="--compilation_level=SIMPLE_OPTIMIZATIONS" > js/widjdevComponent.js
+
+// dialog
+lib/closure/bin/build/closurebuilder.py --root=lib/ --root=js_uncompiled/ --namespace="widjdev.Dialog" --output_mode=compiled --compiler_jar=compiler.jar --compiler_flags="--compilation_level=SIMPLE_OPTIMIZATIONS" > js/dialogview.js

@@ -9,11 +9,13 @@ goog.require('goog.events.EventType');
 goog.require('goog.events.KeyCodes');
 goog.require('goog.events.KeyHandler');
 goog.require('goog.ui.Component');
+goog.require('goog.ui.ComboBox');
 
  
 
 /**https://code.google.com/p/closure-library/wiki/IntroToComponents
  *http://www.closurecheatsheet.com/events#event-handler
+ *http://closure-library.googlecode.com/git/closure/goog/demos/button.html
  * @param {string=} opt_label A label to display. Defaults to "Click Me" if none
  *     provided.
  * @param {goog.dom.DomHelper=} opt_domHelper DOM helper to use.
@@ -38,7 +40,7 @@ widjdev.Component = function(opt_label) {
    * @type {string}
    * @private
    */
-  this.color_ = '#369';
+  this.color_ = '#CCFF33';
 
   /**
    * Keyboard handler for this object. This object is created once the
@@ -70,8 +72,16 @@ widjdev.Component.prototype.fireEvent = function(event) {
  * @override
  */
 widjdev.Component.prototype.createDom = function() {
+
+if (this.initialLabel_.indexOf("label") !== -1 )  {
   this.decorateInternal(this.dom_.createElement('span'));
 
+}
+
+else {
+  var cb = new goog.ui.ComboBox();
+
+}
 
 };
 
@@ -85,6 +95,10 @@ widjdev.Component.prototype.createDom = function() {
  */
 widjdev.Component.prototype.decorateInternal = function(element) {
   goog.base(this, 'decorateInternal', element);
+
+
+
+
   if (!this.getLabelText()) {
     this.setLabelText(this.initialLabel_);
   }
@@ -186,3 +200,13 @@ widjdev.Component.prototype.setLabelText = function(text) {
     goog.dom.setTextContent(this.getElement(), text);
   }
 };
+
+
+
+
+
+
+
+
+
+

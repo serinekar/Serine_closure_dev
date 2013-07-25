@@ -1,0 +1,37 @@
+<html>
+<head>
+  <title>goog.ui.Dialog</title>
+ <script type="text/javascript" src="js/dialogview.js"></script>
+  <style> 
+  </style>
+</head>
+
+<body>
+
+  <button  onclick="dialog1.setVisible(true)">Open Dialog </button>
+
+
+  <div id="toprowContainer">
+		<span id = "toprow1"></span><span id = "toprow2"></span>
+  </div>
+
+  <div id="secondrowContainer">
+	<span id = "trCombo1"></span>	
+  </div>
+
+
+ <script>
+     var dialog1 = new widjdev.Dialog(); 
+                           dialog1.setContent('<img src="http://www.thecorneroffice.co/wp-content/uploads/2012/09/kashagan.jpg" ' +
+      
+        'width="400" height="255" ><br>' +
+        'Lorem ipsum dolor sit amet, consectetuer' +
+        'adipiscing elit. Aenean sollicitudin ultrices urna. Proin vehicula ' +
+        'mauris ac est. Ut scelerisque, risus ut facilisis dictum, est massa ' +
+        'lacinia lorem, in fermentum purus ligula quis nunc. Duis porttitor ' +
+        'euismod risus. Nam hendrerit lacus vehicula augue. Duis ante.'); 
+                           dialog1.setTitle('Edit Account'); 
+                          
+ </script>
+</body>
+</html>
