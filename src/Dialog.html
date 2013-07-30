@@ -1,4 +1,13 @@
 <html>
+<!--  
+ ths file is the main html for the editor pop up widjet
+ @wigdevComponent.js  container for custom controls
+ @dialogview.js is main container for editor and controls, 
+ 
+ widgdevComponent is a dependency for dialogview  rdl-dep.js is the compiled dependecy graph
+  
+-->
+
 <head>
   <title>goog.ui.Dialog</title>
  <script type="text/javascript" src="../lib/closure/goog/base.js"></script>
@@ -17,26 +26,53 @@
   <link rel="stylesheet" href="editorCss/linkbutton.css">
   <style>
 	.widjdev-Component {
-	margin: 10px;
-	 	 width: 60px;
+	 margin: 10px;
+	 width: 60px;
 	}
 	.goog-combobox  {
-   	 width: 60px;
+   width: 60px;
 	 margin-left:10px;
   	}
 	#toprowContainer, #secondrowContainer {
-	margin: 10px;
-	width: 530px;
-	height:30px;
+	 margin: 10px;
+	 width: 530px;
+	 height:30px;
 	}
 
  	.modal-dialog {
-    	width: 630px;
+   width: 630px;
   	}
 	.modal-dialog-content {
-	width: 530px;
-	height: 300px;
+  width: 530px;
+  height: 300px;
 		}
+		
+		
+  /* Base class for all icon elements. */
+ .icon {
+  height: 16px;
+  width: 16px;
+  margin: 0 1px;
+  background-image: url(editorImg/toolbar_icons.gif);
+  background-repeat: no-repeat;
+  vertical-align: middle;
+    }
+
+    /* "Highlight" icon. */
+ .highlight-icon{
+  background-position: -64px;
+    }
+
+    /* "Insert Image" icon. */
+ .insert-image-icon {
+  background-position: -80px;
+    }
+
+    /* Custom style for the "default" button. */
+    .default-button {
+  font-weight: bold;
+    }		
+		
 		
 
 </style>
@@ -47,15 +83,24 @@
 	<button  onclick="setEditorWidjet()">Open Editor </button>
 
  <script>
+  // main container 
  	var dialog1;
+  // set up the view
   function setEditorWidjet() {
+  	
+  	// check if the dialog exists, if not reate it
   	if(!dialog1) { 
-    dialog1 = new widjdev.Dialog(); 
-     widjdev.Dialog.setDialog(); 
-     }
+  	
+    	dialog1 = new widjdev.Dialog(); 
+     	widjdev.Dialog.setDialog(); 
+     } 
+     // if we eneter this else dialog already exists but is minimised
 			else {
-				dialog1.setVisible(true);
-			}     
+			// show the collapse dialog
+			dialog1.setVisible(true);
+		
+			}  
+			   
      }     
                           
  </script>

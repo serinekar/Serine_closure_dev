@@ -1,3 +1,10 @@
+/**
+ * this is the maincontainer, 
+ * extend the html in the "widjdev.Dialog = function(dom)"
+ * exyend the compontets in the "widjdev.Dialog.setDialog =  function ()"
+ *  
+ */
+
 goog.provide('widjdev.Dialog');
 
 goog.require('goog.dom');
@@ -26,10 +33,11 @@ goog.require('goog.ui.decorate');
 goog.require('widjdev.Component');
 
 
-
+ var closureMenuEVENTS;
 
 widjdev.Dialog = function(dom) {
   goog.ui.Dialog.call(this, dom);
+  closureMenuEVENTS = goog.object.getValues(goog.ui.Component.EventType);
 
   this.setContent(
 		"<div id='toprowContainer'>"+
@@ -47,38 +55,57 @@ widjdev.Dialog = function(dom) {
 }
 
 
-
-
 widjdev.Dialog.setDialog =  function () {
+			// create the customcomponents "widgdevComponent.js"
 	    var menuLabel1 = new widjdev.Component('acitve label 1');
   	  var menuLabel2 = new widjdev.Component('active label 2');
-  	  var menuLabel3 = new widjdev.Component('active label 3');
- 	    var combo1 = createTestComboBox() ;
+ 
+  	  
+  	// now a closure main api fancy button  
+    var menuClosuerWidg1 = new goog.ui.ToggleButton([
+      goog.dom.createDom('div', 'icon insert-image-icon goog-inline-block'),
+      goog.dom.createDom('span', {'style': 'vertical-align:middle'},
+          'Insert Image')
+    ]);
+  	  
+  	  // create the main combo box with the core categories
+ 	    var combo1 = createMainComboBox() ;
+ 	    // main tags
       var div1;
 	    var divcombo1;
   	  var div2;
   	  var div3;
-
+			// wrap the tags at line 40 ++
 	    div1 = goog.dom.getElement('toprow1');
       divcombo1  = goog.dom.getElement('trCombo1');
 	    div2 = goog.dom.getElement('toprow2');
  			div3 = goog.dom.getElement('toprow3');
+ 			// create the components
 	    menuLabel1.render(div1);
  	    menuLabel2.render(div2);
- 	    menuLabel3.render(div3);
+ 	    menuClosuerWidg1.render(div3);
+ 	    //setsome events
+ 	    goog.events.listen(menuClosuerWidg1, closureMenuEVENTS, menuClosuerWidgEvent);
+ 	    // create the combo and its events
  	    combo1.render(divcombo1);
-
     	goog.events.listen(combo1, 'change', handleChangeEvent);
 	}
+	
+	// various event handlers
 
-
+ function menuClosuerWidgEvent(e) {
+ 			if((e.type == 'enter')| (e.type == 'leave')) return;
+      alert('"' + e.target.getCaption() + '" dispatched: ' + e.type);
+    }
 
    function handleChangeEvent(e) {
     		alert( e.target.getValue());
   		}
 
+ 
+ // creates a combobox, clone this method to creare new combos
 
-  function createTestComboBox() {
+  function createMainComboBox() {
     var cb = new goog.ui.ComboBox();
     cb.setUseDropdownArrow(true);
     cb.setDefaultText('Select a category');
@@ -97,7 +124,7 @@ widjdev.Dialog.setDialog =  function () {
   }
 
 
-
+// export the main namespace and public functions
 goog.inherits(widjdev.Dialog,  goog.ui.Dialog);
 goog.exportSymbol('widjdev.Dialog.setDialog', widjdev.Dialog.setDialog);
 goog.exportSymbol('widjdev.Dialog.show', widjdev.Dialog.show);

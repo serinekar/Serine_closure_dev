@@ -1,4 +1,8 @@
-
+/**
+ * component for controls wraps a tag and gives a closure widget
+ *  add methods to create custom controls, SEE 	LINE 94
+ */
+ 
 goog.provide('widjdev.Component');
 
 goog.require('goog.dom');
