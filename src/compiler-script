@@ -13,3 +13,14 @@ lib/closure/bin/build/closurebuilder.py --root=lib/ --root=js_uncompiled/ --name
 
 // dialog
 lib/closure/bin/build/closurebuilder.py --root=lib/ --root=js_uncompiled/ --namespace="widjdev.Dialog" --output_mode=compiled --compiler_jar=compiler.jar --compiler_flags="--compilation_level=SIMPLE_OPTIMIZATIONS" > js/dialogview.js
+
+// diaog editor composite
+lib/closure/bin/build/closurebuilder.py --root=lib/ --root=js_uncompiled/ --namespace="widjdev.Dialog" --output_mode=compiled --compiler_jar=compiler.jar --compiler_flags="--compilation_level=SIMPLE_OPTIMIZATIONS"  >  js/dialogview.js 
+
+
+
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1 Dependency Writer Scripts !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1 //
+
+
+lib/closure/bin/build/depswriter.py --root_with_prefix="js_uncompiled ../../../js_uncompiled" > js/rdl-deps.js
+
