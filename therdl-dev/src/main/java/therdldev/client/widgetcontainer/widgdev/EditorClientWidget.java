@@ -22,8 +22,7 @@ public class EditorClientWidget extends Composite  {
 			UiBinder<Widget, therdldev.client.widgetcontainer.widgdev.EditorClientWidget> {
 	}
 
-    @UiField
-    SpanElement editorview;
+
 
 
 	public EditorClientWidget() {
@@ -46,22 +45,25 @@ public class EditorClientWidget extends Composite  {
 	
 
 	private native void bootStrapEditor(EditorClientWidget w) /*-{
-	    $wnd.widjdev.init.leftPanelsetup('btn1', function() { w.@therdldev.client.widgetcontainer.widgdev.EditorClientWidget::btnEditorClick()() });
-        $wnd.widjdev.init.leftPanelsetup('btn2', function() { w.@therdldev.client.widgetcontainer.widgdev.EditorClientWidget::btnListClick()() });
-        $wnd.widjdev.init.leftPanelsetup('btn3', function() { w.@therdldev.client.widgetcontainer.widgdev.EditorClientWidget::btnGetContentClick()() });
-        $wnd.widjdev.init.leftPanelsetup('btn4', function() { w.@therdldev.client.widgetcontainer.widgdev.EditorClientWidget::btnSetContentClick()() });
-		$wnd.widjdev.init();
+	    $wnd.widjdev.setEditor.leftPanelsetup('btn1', function() { w.@therdldev.client.widgetcontainer.widgdev.EditorClientWidget::btnEditorClick()() });
+        $wnd.widjdev.setEditor.leftPanelsetup('btn2', function() { w.@therdldev.client.widgetcontainer.widgdev.EditorClientWidget::btnListClick()() });
+        $wnd.widjdev.setEditor.leftPanelsetup('btn3', function() { w.@therdldev.client.widgetcontainer.widgdev.EditorClientWidget::btnGetContentClick()() });
+        $wnd.widjdev.setEditor.leftPanelsetup('btn4', function() { w.@therdldev.client.widgetcontainer.widgdev.EditorClientWidget::btnSetContentClick()() });
+
+	    var dialog1 = new $wnd.widjdev.Dialog();
+        $wnd.widjdev.Dialog.setDialog();
+
 	}-*/;
 
-
+    // now will call setEditorWidjet()
     public void btnEditorClick() {
         Window.alert("Editor");
-        editorview.getStyle().setDisplay(Style.Display.BLOCK);
+
 
 
     }
     public void btnListClick() {
-        editorview.getStyle().setDisplay(Style.Display.NONE);
+
         Window.alert("List");
 
     }
@@ -78,13 +80,25 @@ public class EditorClientWidget extends Composite  {
 
     }
 
+    private native void getEditor() /*-{
+
+
+			$wnd.dialog1.setVisible(true);
+
+
+    }-*/;
+
+
+
     private native String getContent() /*-{
-       return $wnd.widjdev.init.getcontents();
+
+       return $wnd.widjdev.setEditor.getcontents();
+
     }-*/;
 
 
     private native void setContent(String t) /*-{
-       $wnd.widjdev.init.setcontents(t);
+       $wnd.widjdev.setEditort.setcontents(t);
     }-*/;
 
 
