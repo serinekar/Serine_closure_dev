@@ -92,8 +92,18 @@ widjdev.Dialog.setDialog =  function () {
  	    combo1.render(divcombo1);
     	goog.events.listen(combo1, 'change', handleChangeEvent);
     	
+    	
+    	
+    	   widjdev.setEditor.leftPanelsetup('btn1', function() {alert("Editor")} );
+				 widjdev.setEditor.leftPanelsetup('btn2', function() {alert("List")} );
+         widjdev.setEditor.leftPanelsetup('btn3', function() {
+         alert( widjdev.setEditor.getcontents());
+         } );
+      	 widjdev.setEditor.leftPanelsetup('btn4', function() {
+				 widjdev.setEditor.setcontents("SetContent  event is setting this text in editor");
+				 alert("SetContent")} );
     	// now set the editor
-    	widjdev.setEditor();
+      	widjdev.setEditor();
     	
     	
 	}
@@ -134,8 +144,10 @@ widjdev.Dialog.setDialog =  function () {
   }
 
 
-// export the main namespace and public functions
+// inherit from main closure dialog 
 goog.inherits(widjdev.Dialog,  goog.ui.Dialog);
+
+// export the main namespace and public functions
 goog.exportSymbol('widjdev.Dialog', widjdev.Dialog);
 goog.exportSymbol('widjdev.Dialog.setDialog', widjdev.Dialog.setDialog);
 goog.exportSymbol('widjdev.Dialog.show', widjdev.Dialog.show);

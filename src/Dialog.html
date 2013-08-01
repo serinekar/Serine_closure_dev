@@ -17,6 +17,7 @@
  <script type="text/javascript" src="js/dialogview.js"></script>
   <link rel="stylesheet" href="editorCss/common.css">
   <link rel="stylesheet" href="editorCss/demo.css">
+  <link rel="stylesheet" href="editorCss/left-panel.css">
   <link rel="stylesheet" href="editorCss/menu.css">
   <link rel="stylesheet" href="editorCss/menuseparator.css">
   <link rel="stylesheet" href="editorCss/menuitem.css">
@@ -36,32 +37,54 @@
   <link rel="stylesheet" href="editorCss/editortoolbar.css" />
   <style>
 	.widjdev-Component {
-	 margin: 10px;
-	 width: 60px;
+	 margin:10px;
+	 width:60px;
 	}
 	.goog-combobox  {
-   width: 60px;
+   width:60px;
 	 margin-left:10px;
   	}
-	#toprowContainer, #secondrowContainer {
-	 margin: 10px;
-	 width: 530px;
+	#toprowContainer {
+	 margin:10px;
+	 width:530px;
 	 height:30px;
 	}
+	
+	#toprowContainer #toprow1 {
+	display:inline-block;
 
+	}
+		
+	#toprowContainer #toprow2 {
+	display:inline-block;
+	}
+	
+	#toprowContainer #toprow3 {
+	display:inline-block;
+	}
+	
+	#secondrowContainer {
+	 margin:2px 0 2px 10px;
+	 width:530px;
+	 height:30px;
+	
+	}
+	
  	.modal-dialog {
-   width: 630px;
+   width:750px;
+   height:600px;
   	}
+  	
 	.modal-dialog-content {
-  width: 530px;
-  height: 300px;
+  width:720px;
+  height:500px;
 		}
 		
 		
   /* Base class for all icon elements. */
  .icon {
-  height: 16px;
-  width: 16px;
+  height:16px;
+  width:16px;
   margin: 0 1px;
   background-image: url(editorImg/toolbar_icons.gif);
   background-repeat: no-repeat;
@@ -91,6 +114,18 @@
 <body>
 
 	<button  onclick="setEditorWidjet()">Open Editor </button>
+	   
+	 <div class= "left-panel">
+
+	<div id="btn1" class="goog-custom-button goog-custom-button-collapse-left"> <div >Editor</div></div> 
+	
+	<div id="btn2" class="goog-custom-button goog-custom-button-collapse-left goog-custom-button-collapse-left"> <div >List</div> </div>
+
+	<div id="btn3" class="goog-custom-button goog-custom-button-collapse-left goog-custom-button-collapse-left"> <div >GetContent</div> </div> 
+
+ 	<div id="btn4" class="goog-custom-button goog-custom-button-collapse-left goog-custom-button-collapse-left"> <div >SetContent</div> </div> 
+       
+  </div> 
 
  <script>
   // main container 

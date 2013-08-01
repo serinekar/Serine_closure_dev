@@ -71,10 +71,26 @@ myField.makeEditable();
 
 }
 
+widjdev.setEditor.leftPanelsetup = function (name, onClickCallback) {
+var button = goog.ui.decorate(goog.dom.getElement(name));
+button.setDispatchTransitionEvents(goog.ui.Component.State.ACTION, true);
+
+//see the file dialogview.js to understand the "onClickCallback" 
+goog.events.listen(button, goog.ui.Component.EventType.ACTION, onClickCallback);
+
+}
+
+
 
  widjdev.setEditor.getcontents = function () {
+ 
+ if(!myField) alert('contents from widgdev myField is null');
 
-  return myField.getCleanContents();
+ var elm = myField.getElement(); 
+ 	var contents = myField.getCleanContents();
+ 	alert('contents from widgdev '+ elm.innerHTML);
+
+  return elm.innerHTML;
 
 }
 
@@ -88,4 +104,5 @@ myField.makeEditable();
 goog.exportSymbol('widjdev.setEditor', widjdev.setEditor);
 goog.exportSymbol('widjdev.setEditor.getcontents', widjdev.setEditor.getcontents);
 goog.exportSymbol('widjdev.setEditor.setcontents', widjdev.setEditor.setcontents);
+goog.exportSymbol('widjdev.setEditor.leftPanelsetup', widjdev.setEditor.leftPanelsetup);
 
