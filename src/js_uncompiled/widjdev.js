@@ -88,7 +88,7 @@ goog.events.listen(button, goog.ui.Component.EventType.ACTION, onClickCallback);
 
  var elm = myField.getElement(); 
  	var contents = myField.getCleanContents();
- 	alert('contents from widgdev '+ elm.innerHTML);
+// 	alert('contents from widgdev '+ elm.innerHTML);
 
   return elm.innerHTML;
 
