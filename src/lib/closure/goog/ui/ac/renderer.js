@@ -24,23 +24,23 @@ goog.provide('goog.ui.ac.Renderer.CustomRenderer');
 goog.require('goog.a11y.aria');
 goog.require('goog.a11y.aria.Role');
 goog.require('goog.a11y.aria.State');
+goog.require('goog.array');
 goog.require('goog.dispose');
 goog.require('goog.dom');
+goog.require('goog.dom.NodeType');
 goog.require('goog.dom.classes');
-goog.require('goog.events.Event');
+goog.require('goog.events');
 goog.require('goog.events.EventTarget');
 goog.require('goog.events.EventType');
 goog.require('goog.fx.dom.FadeInAndShow');
 goog.require('goog.fx.dom.FadeOutAndHide');
-goog.require('goog.iter');
 goog.require('goog.positioning');
 goog.require('goog.positioning.Corner');
 goog.require('goog.positioning.Overflow');
 goog.require('goog.string');
 goog.require('goog.style');
 goog.require('goog.ui.IdGenerator');
-goog.require('goog.ui.ac.AutoComplete.EventType');
-goog.require('goog.userAgent');
+goog.require('goog.ui.ac.AutoComplete');
 
 
 
@@ -422,7 +422,7 @@ goog.ui.ac.Renderer.prototype.dismiss = function() {
           this.menuFadeDuration_);
       this.animation_.play();
     } else {
-      goog.style.showElement(this.element_, false);
+      goog.style.setElementShown(this.element_, false);
     }
   }
 };
@@ -453,7 +453,7 @@ goog.ui.ac.Renderer.prototype.show = function() {
           this.menuFadeDuration_);
       this.animation_.play();
     } else {
-      goog.style.showElement(this.element_, true);
+      goog.style.setElementShown(this.element_, true);
     }
   }
 };
@@ -475,8 +475,10 @@ goog.ui.ac.Renderer.prototype.hiliteRow = function(index) {
   var rowDiv = index >= 0 && index < this.rowDivs_.length ?
       this.rowDivs_[index] : undefined;
 
-  var evtObj = {type: goog.ui.ac.AutoComplete.EventType.ROW_HILITE,
-    rowNode: rowDiv};
+  var evtObj = /** @lends {goog.events.Event.prototype} */ ({
+    type: goog.ui.ac.AutoComplete.EventType.ROW_HILITE,
+    rowNode: rowDiv
+  });
   if (this.dispatchEvent(evtObj)) {
     this.hiliteNone();
     this.hilitedRow_ = index;
@@ -591,7 +593,7 @@ goog.ui.ac.Renderer.prototype.redraw = function() {
     this.customRenderer_.render(this, this.element_, this.rows_, this.token_);
   } else {
     var curRow = null;
-    goog.iter.forEach(this.rows_, function(row) {
+    goog.array.forEach(this.rows_, function(row) {
       row = this.renderRowHtml(row, this.token_);
       if (this.topAlign_) {
         // Aligned with top of target = best match at bottom

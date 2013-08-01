@@ -113,6 +113,7 @@ goog.soy.Renderer.prototype.renderAsFragment = function(template,
  */
 goog.soy.Renderer.prototype.renderAsElement = function(template,
                                                        opt_templateData) {
+  this.saveTemplateRender_(template, opt_templateData);
   return goog.soy.renderAsElement(template, opt_templateData,
                                   this.getInjectedData_(), this.dom_);
 };
@@ -257,7 +258,7 @@ goog.soy.InjectedDataSupplier = function() {};
 
 /**
  * Gets the injected data. Implementation may assume that
-v * {@code goog.soy.Renderer} will treat the returned data as
+ * {@code goog.soy.Renderer} will treat the returned data as
  * immutable.  The renderer will call this every time one of its
  * {@code render*} methods is called.
  * @return {Object} A key-value pair representing the injected data.

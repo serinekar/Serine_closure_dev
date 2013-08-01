@@ -26,6 +26,10 @@ goog.require('goog.structs.Set');
 goog.require('goog.userAgent');
 
 
+/** @define {boolean} Whether logging should be enabled. */
+goog.define('goog.debug.LOGGING_ENABLED', goog.DEBUG);
+
+
 /**
  * Catches onerror events fired by windows and similar objects.
  * @param {function(Object)} logFunc The function to call with the error
@@ -44,7 +48,8 @@ goog.debug.catchErrors = function(logFunc, opt_cancel, opt_target) {
   // workaround still needs to be skipped in Safari after the webkit change
   // gets pushed out in Safari.
   // See https://bugs.webkit.org/show_bug.cgi?id=67119
-  if (goog.userAgent.WEBKIT && !goog.userAgent.isVersion('535.3')) {
+  if (goog.userAgent.WEBKIT &&
+      !goog.userAgent.isVersionOrHigher('535.3')) {
     retVal = !retVal;
   }
   target.onerror = function(message, url, line) {
@@ -244,10 +249,11 @@ goog.debug.normalizeErrorObject = function(err) {
 
   // The IE Error object contains only the name and the message.
   // The Safari Error object uses the line and sourceURL fields.
-  if (threwError || !err.lineNumber || !err.fileName || !err.stack) {
+  if (threwError || !err.lineNumber || !err.fileName || !err.stack ||
+      !err.message || !err.name) {
     return {
-      'message': err.message,
-      'name': err.name,
+      'message': err.message || 'Not available',
+      'name': err.name || 'UnknownError',
       'lineNumber': lineNumber,
       'fileName': fileName,
       'stack': err.stack || 'Not available'

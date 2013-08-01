@@ -23,6 +23,8 @@ goog.setTestOnly('goog.events.eventTargetTester.KeyType');
 goog.provide('goog.events.eventTargetTester.UnlistenReturnType');
 goog.setTestOnly('goog.events.eventTargetTester.UnlistenReturnType');
 
+goog.require('goog.array');
+goog.require('goog.events');
 goog.require('goog.events.Event');
 goog.require('goog.events.EventTarget');
 goog.require('goog.testing.asserts');
@@ -65,12 +67,14 @@ goog.require('goog.testing.recordFunction');
  *     Whether we should check return value from
  *     unlisten call. If unlisten does not return a value, this should
  *     be set to false.
+ * @param {boolean} objectListenerSupported Whether listener of type
+ *     Object is supported.
  */
 goog.events.eventTargetTester.setUp = function(
     listenFn, unlistenFn, unlistenByKeyFn, listenOnceFn,
     dispatchEventFn, removeAllFn,
     getListenersFn, getListenerFn, hasListenerFn,
-    listenKeyType, unlistenFnReturnType) {
+    listenKeyType, unlistenFnReturnType, objectListenerSupported) {
   listen = listenFn;
   unlisten = unlistenFn;
   unlistenByKey = unlistenByKeyFn;
@@ -82,6 +86,7 @@ goog.events.eventTargetTester.setUp = function(
   hasListener = hasListenerFn;
   keyType = listenKeyType;
   unlistenReturnType = unlistenFnReturnType;
+  objectTypeListenerSupported = objectListenerSupported;
 
   listeners = [];
   for (var i = 0; i < goog.events.eventTargetTester.MAX_; i++) {
@@ -179,7 +184,7 @@ var EventType = {
 
 var listen, unlisten, unlistenByKey, listenOnce, dispatchEvent;
 var removeAll, getListeners, getListener, hasListener;
-var keyType, unlistenReturnType;
+var keyType, unlistenReturnType, objectTypeListenerSupported;
 var eventTargets, listeners;
 
 
@@ -673,6 +678,10 @@ function testStopPropagationAtCapture() {
 
 
 function testHandleEvent() {
+  if (!objectTypeListenerSupported) {
+    return;
+  }
+
   var obj = {};
   obj.handleEvent = goog.testing.recordFunction();
 
@@ -1002,5 +1011,18 @@ function testFiringEventBeforeDisposeInternalWorks() {
     assertListenerIsCalled(listeners[0], times(1));
   } catch (e) {
     goog.dispose(t);
+  }
+}
+
+
+function testLoopDetection() {
+  var target = new goog.events.EventTarget();
+  target.setParentEventTarget(target);
+
+  try {
+    target.dispatchEvent('string');
+    fail('expected error');
+  } catch (e) {
+    assertContains('infinite', e.message);
   }
 }

@@ -39,7 +39,7 @@ goog.require('goog.asserts');
  * Setting goog.TRUSTED_SITE to false will automatically set
  * NATIVE_ARRAY_PROTOTYPES to false.
  */
-goog.NATIVE_ARRAY_PROTOTYPES = goog.TRUSTED_SITE;
+goog.define('goog.NATIVE_ARRAY_PROTOTYPES', goog.TRUSTED_SITE);
 
 
 /**
@@ -1258,22 +1258,23 @@ goog.array.binaryRemove = function(array, value, opt_compareFn) {
 /**
  * Splits an array into disjoint buckets according to a splitting function.
  * @param {Array.<T>} array The array.
- * @param {function(T,number,Array.<T>):?} sorter Function to call for every
- *     element.  This
- *     takes 3 arguments (the element, the index and the array) and must
- *     return a valid object key (a string, number, etc), or undefined, if
- *     that object should not be placed in a bucket.
+ * @param {function(this:S, T,number,Array.<T>):?} sorter Function to call for
+ *     every element.  This takes 3 arguments (the element, the index and the
+ *     array) and must return a valid object key (a string, number, etc), or
+ *     undefined, if that object should not be placed in a bucket.
+ * @param {S=} opt_obj The object to be used as the value of 'this' within
+ *     sorter.
  * @return {!Object} An object, with keys being all of the unique return values
  *     of sorter, and values being arrays containing the items for
  *     which the splitter returned that key.
- * @template T
+ * @template T,S
  */
-goog.array.bucket = function(array, sorter) {
+goog.array.bucket = function(array, sorter, opt_obj) {
   var buckets = {};
 
   for (var i = 0; i < array.length; i++) {
     var value = array[i];
-    var key = sorter(value, i, array);
+    var key = sorter.call(opt_obj, value, i, array);
     if (goog.isDef(key)) {
       // Push the value to the right bucket, creating it if necessary.
       var bucket = buckets[key] || (buckets[key] = []);
@@ -1296,7 +1297,7 @@ goog.array.bucket = function(array, sorter) {
  *     key for the element in the new object. If the function returns the same
  *     key for more than one element, the value for that key is
  *     implementation-defined.
- * @param {S=} opt_obj  The object to be used as the value of 'this'
+ * @param {S=} opt_obj The object to be used as the value of 'this'
  *     within keyFunc.
  * @return {!Object.<T>} The new object.
  * @template T,S
@@ -1421,6 +1422,28 @@ goog.array.rotate = function(array, n) {
     }
   }
   return array;
+};
+
+
+/**
+ * Moves one item of an array to a new position keeping the order of the rest
+ * of the items. Example use case: keeping a list of JavaScript objects
+ * synchronized with the corresponding list of DOM elements after one of the
+ * elements has been dragged to a new position.
+ * @param {!(Array|Arguments|{length:number})} arr The array to modify.
+ * @param {number} fromIndex Index of the item to move between 0 and
+ *     {@code arr.length - 1}.
+ * @param {number} toIndex Target index between 0 and {@code arr.length - 1}.
+ */
+goog.array.moveItem = function(arr, fromIndex, toIndex) {
+  goog.asserts.assert(fromIndex >= 0 && fromIndex < arr.length);
+  goog.asserts.assert(toIndex >= 0 && toIndex < arr.length);
+  // Remove 1 item at fromIndex.
+  var removedItems = goog.array.ARRAY_PROTOTYPE_.splice.call(arr, fromIndex, 1);
+  // Insert the removed item at toIndex.
+  goog.array.ARRAY_PROTOTYPE_.splice.call(arr, toIndex, 0, removedItems[0]);
+  // We don't use goog.array.insertAt and goog.array.removeAt, because they're
+  // significantly slower than splice.
 };
 
 

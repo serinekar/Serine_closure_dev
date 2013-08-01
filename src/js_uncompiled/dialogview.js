@@ -31,6 +31,7 @@ goog.require('goog.ui.LinkButtonRenderer');
 goog.require('goog.ui.ToggleButton');
 goog.require('goog.ui.decorate');
 goog.require('widjdev.Component');
+goog.require('widjdev.setEditor'); 
 
 
  var closureMenuEVENTS;
@@ -45,7 +46,8 @@ widjdev.Dialog = function(dom) {
 		"</div>"+
 		"<div id='secondrowContainer'>"+
 		"<span id = 'trCombo1'></span>"+
-		"</div>");
+		"</div><div id='toolbar' style='width:602px'></div>"+
+		"<div id='editorDiv'></div>");
 		
 	        this.setModal(false);
 	        this.setVisible(true);
@@ -89,13 +91,21 @@ widjdev.Dialog.setDialog =  function () {
  	    // create the combo and its events
  	    combo1.render(divcombo1);
     	goog.events.listen(combo1, 'change', handleChangeEvent);
+    	
+    	// now set the editor
+    	widjdev.setEditor();
+    	
+    	
 	}
 	
 	// various event handlers
 
  function menuClosuerWidgEvent(e) {
+ 		
  			if((e.type == 'enter')| (e.type == 'leave')) return;
+ 			
       alert('"' + e.target.getCaption() + '" dispatched: ' + e.type);
+   
     }
 
    function handleChangeEvent(e) {
@@ -126,6 +136,7 @@ widjdev.Dialog.setDialog =  function () {
 
 // export the main namespace and public functions
 goog.inherits(widjdev.Dialog,  goog.ui.Dialog);
+goog.exportSymbol('widjdev.Dialog', widjdev.Dialog);
 goog.exportSymbol('widjdev.Dialog.setDialog', widjdev.Dialog.setDialog);
 goog.exportSymbol('widjdev.Dialog.show', widjdev.Dialog.show);
 

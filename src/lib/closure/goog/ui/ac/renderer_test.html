@@ -424,7 +424,7 @@ See the COPYING file for details.
     var showCalled = false;
     var showAnimCalled = false;
 
-    propertyReplacer.set(goog.style, 'showElement',  function(el, state) {
+    propertyReplacer.set(goog.style, 'setElementShown',  function(el, state) {
       if (state) {
         showCalled = true;
       } else {
@@ -471,7 +471,8 @@ See the COPYING file for details.
     renderer.maybeCreateElement_();
 
     assertNotNull(target);
-    assertEquals('', goog.a11y.aria.getRole(target));
+    assertEvaluatesToFalse('The role should be empty.',
+        goog.a11y.aria.getRole(target));
     assertEquals('',
         goog.a11y.aria.getState(target,
             goog.a11y.aria.State.AUTOCOMPLETE));
@@ -550,7 +551,8 @@ See the COPYING file for details.
     var targetSize = goog.style.getSize(target);
 
     assertEquals(0 + targetOffset.x, rendererOffset.x);
-    assertEquals(targetOffset.y + targetSize.height, rendererOffset.y);
+    assertRoughlyEquals(
+        targetOffset.y + targetSize.height, rendererOffset.y, 1);
   }
 
   function testRepositionWithRightAlign() {
@@ -568,10 +570,12 @@ See the COPYING file for details.
     var targetOffset  = goog.style.getPageOffset(target);
     var targetSize = goog.style.getSize(target);
 
-    assertEquals(
+    assertRoughlyEquals(
         targetOffset.x + targetSize.width,
-        rendererOffset.x + rendererSize.width);
-    assertEquals(targetOffset.y + targetSize.height, rendererOffset.y);
+        rendererOffset.x + rendererSize.width,
+        1);
+    assertRoughlyEquals(
+        targetOffset.y + targetSize.height, rendererOffset.y, 1);
   }
 
   // ------- Helper functions -------

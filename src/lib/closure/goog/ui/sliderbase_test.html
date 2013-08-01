@@ -223,7 +223,7 @@ function setUp() {
 }
 
 function tearDown() {
-  goog.events.removeAll();
+  goog.events.removeAllNativeListeners();
   oneThumbSlider.dispose();
   twoThumbSlider.dispose();
   oneThumbSliderRtl.dispose();
@@ -711,6 +711,28 @@ function testMouseClickWithMoveToPointEnabled() {
   // Case when thumb is clicked
   goog.testing.events.fireClickSequence(oneThumbSlider.getElement());
   assertEquals(oneThumbSlider.getValue(), initialValue);
+}
+
+function testNonIntegerStepSize() {
+  var stepSize = 0.02;
+  oneThumbSlider.setStep(stepSize);
+  oneThumbSlider.setMinimum(-1);
+  oneThumbSlider.setMaximum(1);
+  oneThumbSlider.setValue(0.7);
+  assertRoughlyEquals(0.7, oneThumbSlider.getValue(), 0.000001);
+  oneThumbSlider.setValue(0.3);
+  assertRoughlyEquals(0.3, oneThumbSlider.getValue(), 0.000001);
+}
+
+function testSingleThumbSliderHasZeroExtent() {
+  var stepSize = 0.02;
+  oneThumbSlider.setStep(stepSize);
+  oneThumbSlider.setMinimum(-1);
+  oneThumbSlider.setMaximum(1);
+  oneThumbSlider.setValue(0.7);
+  assertEquals(0, oneThumbSlider.getExtent());
+  oneThumbSlider.setValue(0.3);
+  assertEquals(0, oneThumbSlider.getExtent());
 }
 
 /**

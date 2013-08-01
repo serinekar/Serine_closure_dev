@@ -81,14 +81,14 @@ Author: attila@google.com (Attila Bodis)
      */
     function isMacSafari3() {
       return goog.userAgent.WEBKIT && goog.userAgent.MAC &&
-          !goog.userAgent.isVersion('527');
+          !goog.userAgent.isVersionOrHigher('527');
     }
 
     /**
      * @return {boolean} Whether we're on IE6 or lower.
      */
     function isIe6() {
-      return goog.userAgent.IE && !goog.userAgent.isVersion('7');
+      return goog.userAgent.IE && !goog.userAgent.isVersionOrHigher('7');
     }
 
     function setUp() {
@@ -368,9 +368,8 @@ Author: attila@google.com (Attila Bodis)
       var foo = goog.dom.getElement('foo');
       assertNotNull(foo);
       controlRenderer.setAriaRole(foo);
-      assertEquals('ControlRenderer must not set ARIA role', '',
+      assertEvaluatesToFalse('The role should be empty.',
           goog.a11y.aria.getRole(foo));
-
       var bar = goog.dom.getElement('bar');
       assertNotNull(bar);
       testRenderer.setAriaRole(bar);

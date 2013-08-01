@@ -20,7 +20,6 @@
 
 goog.provide('goog.ui.FlatButtonRenderer');
 
-goog.require('goog.a11y.aria');
 goog.require('goog.a11y.aria.Role');
 goog.require('goog.dom.classes');
 goog.require('goog.ui.Button');
@@ -64,11 +63,13 @@ goog.ui.FlatButtonRenderer.CSS_CLASS = goog.getCssName('goog-flat-button');
 goog.ui.FlatButtonRenderer.prototype.createDom = function(button) {
   var classNames = this.getClassNames(button);
   var attributes = {
-    'class': goog.ui.INLINE_BLOCK_CLASSNAME + ' ' + classNames.join(' '),
-    'title': button.getTooltip() || ''
+    'class': goog.ui.INLINE_BLOCK_CLASSNAME + ' ' + classNames.join(' ')
   };
-  return button.getDomHelper().createDom(
+  var element = button.getDomHelper().createDom(
       'div', attributes, button.getContent());
+  this.setTooltip(element, button.getTooltip());
+  this.setAriaStates(button, element);
+  return element;
 };
 
 

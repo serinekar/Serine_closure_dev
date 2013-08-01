@@ -28,7 +28,6 @@ goog.require('goog.a11y.aria.Role');
 goog.require('goog.a11y.aria.State');
 goog.require('goog.dom');
 goog.require('goog.dom.classes');
-goog.require('goog.events');
 goog.require('goog.events.Event');
 goog.require('goog.events.EventHandler');
 goog.require('goog.events.EventTarget');
@@ -236,7 +235,7 @@ goog.ui.Zippy.prototype.toggle = function() {
 goog.ui.Zippy.prototype.setExpanded = function(expanded) {
   if (this.elContent_) {
     // Hide the element, if one is provided.
-    goog.style.showElement(this.elContent_, expanded);
+    goog.style.setElementShown(this.elContent_, expanded);
   } else if (expanded && this.lazyCreateFunc_) {
     // Assume that when the element is not hidden upon creation.
     this.elContent_ = this.lazyCreateFunc_();
@@ -248,8 +247,8 @@ goog.ui.Zippy.prototype.setExpanded = function(expanded) {
 
   if (this.elExpandedHeader_) {
     // Hide the show header and show the hide one.
-    goog.style.showElement(this.elHeader_, !expanded);
-    goog.style.showElement(this.elExpandedHeader_, expanded);
+    goog.style.setElementShown(this.elHeader_, !expanded);
+    goog.style.setElementShown(this.elExpandedHeader_, expanded);
   } else {
     // Update header image, if any.
     this.updateHeaderClassName(expanded);

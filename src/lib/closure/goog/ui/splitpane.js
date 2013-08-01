@@ -37,12 +37,10 @@ goog.require('goog.dom');
 goog.require('goog.dom.classes');
 goog.require('goog.events.EventType');
 goog.require('goog.fx.Dragger');
-goog.require('goog.fx.Dragger.EventType');
 goog.require('goog.math.Rect');
 goog.require('goog.math.Size');
 goog.require('goog.style');
 goog.require('goog.ui.Component');
-goog.require('goog.ui.Component.EventType');
 goog.require('goog.userAgent');
 
 
@@ -106,7 +104,12 @@ goog.ui.SplitPane.EventType = {
   /**
    * Dispatched after handle drag end.
    */
-  HANDLE_DRAG_END: 'handle_drag_end'
+  HANDLE_DRAG_END: 'handle_drag_end',
+
+  /**
+   * Dispatched after handle snap (double-click splitter).
+   */
+  HANDLE_SNAP: 'handle_snap'
 };
 
 
@@ -742,6 +745,9 @@ goog.ui.SplitPane.prototype.snapIt_ = function() {
     }
     this.setFirstComponentSize(snapSize);
   }
+
+  // Fire a SNAP event.
+  this.dispatchEvent(goog.ui.SplitPane.EventType.HANDLE_SNAP);
 };
 
 
@@ -757,7 +763,7 @@ goog.ui.SplitPane.prototype.handleDragStart_ = function(e) {
     // Create the overlay.
     var cssStyles = 'position: relative';
 
-    if (goog.userAgent.IE) {
+    if (goog.userAgent.IE && !goog.userAgent.isVersionOrHigher('10')) {
       // IE doesn't look at this div unless it has a background, so we'll
       // put one on, but make it opaque.
       cssStyles += ';background-color: #000;filter: Alpha(Opacity=0)';

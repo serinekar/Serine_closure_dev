@@ -28,16 +28,16 @@ goog.require('goog.asserts');
 goog.require('goog.dom');
 goog.require('goog.events.EventType');
 goog.require('goog.events.KeyCodes');
-goog.require('goog.events.KeyHandler.EventType');
+goog.require('goog.events.KeyHandler');
 goog.require('goog.math.Box');
 goog.require('goog.math.Rect');
 goog.require('goog.positioning');
 goog.require('goog.positioning.Corner');
 goog.require('goog.positioning.MenuAnchoredPosition');
+goog.require('goog.positioning.Overflow');
 goog.require('goog.style');
 goog.require('goog.ui.Button');
-goog.require('goog.ui.Component.EventType');
-goog.require('goog.ui.Component.State');
+goog.require('goog.ui.Component');
 goog.require('goog.ui.Menu');
 goog.require('goog.ui.MenuButtonRenderer');
 goog.require('goog.ui.registry');
@@ -84,7 +84,7 @@ goog.ui.MenuButton = function(content, opt_menu, opt_renderer, opt_domHelper) {
   // Phones running iOS prior to version 4.2.
   if ((goog.userAgent.product.IPHONE || goog.userAgent.product.IPAD) &&
       // Check the webkit version against the version for iOS 4.2.1.
-      !goog.userAgent.isVersion('533.17.9')) {
+      !goog.userAgent.isVersionOrHigher('533.17.9')) {
     // @bug 4322060 This is required so that the menu works correctly on
     // iOS prior to version 4.2. Otherwise, the blur action closes the menu
     // before the menu button click can be processed.
@@ -182,9 +182,8 @@ goog.ui.MenuButton.prototype.enterDocument = function() {
   if (this.menu_) {
     this.attachMenuEventListeners_(this.menu_, true);
   }
-  var element = this.getElement();
-  goog.asserts.assert(element, 'The menu button DOM element cannot be null.');
-  goog.a11y.aria.setState(element, goog.a11y.aria.State.HASPOPUP, 'true');
+  goog.a11y.aria.setState(this.getElementStrict(),
+      goog.a11y.aria.State.HASPOPUP, !!this.menu_);
 };
 
 
@@ -414,6 +413,10 @@ goog.ui.MenuButton.prototype.setMenu = function(menu) {
         this.attachMenuEventListeners_(oldMenu, false);
       }
       delete this.menu_;
+    }
+    if (this.isInDocument()) {
+      goog.a11y.aria.setState(this.getElementStrict(),
+          goog.a11y.aria.State.HASPOPUP, !!menu);
     }
     if (menu) {
       this.menu_ = menu;
@@ -772,7 +775,7 @@ goog.ui.MenuButton.prototype.positionMenu = function() {
   var elem = this.menu_.getElement();
   if (!this.menu_.isVisible()) {
     elem.style.visibility = 'hidden';
-    goog.style.showElement(elem, true);
+    goog.style.setElementShown(elem, true);
   }
 
   if (!this.originalSize_ && this.isScrollOnOverflow()) {
@@ -782,7 +785,7 @@ goog.ui.MenuButton.prototype.positionMenu = function() {
   position.reposition(elem, popupCorner, this.menuMargin_, this.originalSize_);
 
   if (!this.menu_.isVisible()) {
-    goog.style.showElement(elem, false);
+    goog.style.setElementShown(elem, false);
     elem.style.visibility = 'visible';
   }
 };
@@ -837,9 +840,11 @@ goog.ui.MenuButton.prototype.attachMenuEventListeners_ = function(menu,
 goog.ui.MenuButton.prototype.handleHighlightItem = function(e) {
   var element = this.getElement();
   goog.asserts.assert(element, 'The menu button DOM element cannot be null.');
-  goog.a11y.aria.setState(element,
-      goog.a11y.aria.State.ACTIVEDESCENDANT,
-      e.target.getElement().id);
+  if (e.target.getElement() != null) {
+    goog.a11y.aria.setState(element,
+        goog.a11y.aria.State.ACTIVEDESCENDANT,
+        e.target.getElement().id);
+  }
 };
 
 
