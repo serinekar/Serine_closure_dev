@@ -1,3 +1,83 @@
+      /*  Editor and controls. */
+
+      div.modal-dialog {
+         width:750px;
+         height:600px;
+         }
+
+       div.modal-dialog  .modal-dialog-content {
+                 width:720px;
+                 height:500px;
+                 }
+
+
+    div.modal-dialog div.modal-dialog-content  .widjdev-Component {
+        margin:10px;
+        width:60px;
+        }
+    div.modal-dialog  div.modal-dialog-content   .goog-combobox  {
+        width:60px;
+        margin-left:10px;
+        }
+    div.modal-dialog   div.modal-dialog-content  #toprowContainer {
+        margin:10px;
+        width:530px;
+        height:30px;
+        }
+
+   div.modal-dialog   div.modal-dialog-content   #toprowContainer #toprow1 {
+        display:inline-block;
+
+        }
+
+     div.modal-dialog  div.modal-dialog-content #toprowContainer #toprow2 {
+        display:inline-block;
+        }
+
+     div.modal-dialog div.modal-dialog-content  #toprowContainer #toprow3 {
+        display:inline-block;
+        }
+
+   div.modal-dialog  div.modal-dialog-content   #secondrowContainer {
+        margin:2px 0 2px 10px;
+        width:530px;
+        height:30px;
+
+        }
+
+
+
+
+
+        /* Base class for all icon elements. */
+    div.modal-dialog div.modal-dialog-content    .icon {
+        height:16px;
+        width:16px;
+        margin: 0 1px;
+        background-image: url(editorImg/toolbar_icons.gif);
+        background-repeat: no-repeat;
+        vertical-align: middle;
+        }
+
+        /* "Highlight" icon. */
+    div.modal-dialog div.modal-dialog-content    .highlight-icon{
+        background-position: -64px;
+        }
+
+        /* "Insert Image" icon. */
+     div.modal-dialog div.modal-dialog-content   .insert-image-icon {
+        background-position: -80px;
+        }
+
+        /* Custom style for the "default" button. */
+     div.modal-dialog div.modal-dialog-content   .default-button {
+        font-weight: bold;
+        }
+
+
+
+ /* left panel buttons and controls */
+
 div.left-panel {
     position: relative; /* Enable absolute positioning for children and pseudo elements */
     width: 200px;
@@ -34,6 +114,8 @@ div#btn4  {
     padding: 10px 20px;
 
 }
+
+ /*  goog libary css   */
 
 
 

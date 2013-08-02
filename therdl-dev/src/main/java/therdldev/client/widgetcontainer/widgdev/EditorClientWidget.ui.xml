@@ -13,75 +13,6 @@
         }
 
 
-        .widjdev-Component {
-        margin:10px;
-        width:60px;
-        }
-        .goog-combobox  {
-        width:60px;
-        margin-left:10px;
-        }
-        #toprowContainer {
-        margin:10px;
-        width:530px;
-        height:30px;
-        }
-
-        #toprowContainer #toprow1 {
-        display:inline-block;
-
-        }
-
-        #toprowContainer #toprow2 {
-        display:inline-block;
-        }
-
-        #toprowContainer #toprow3 {
-        display:inline-block;
-        }
-
-        #secondrowContainer {
-        margin:2px 0 2px 10px;
-        width:530px;
-        height:30px;
-
-        }
-
-        .modal-dialog {
-        width:750px;
-        height:600px;
-        }
-
-        .modal-dialog-content {
-        width:720px;
-        height:500px;
-        }
-
-
-        /* Base class for all icon elements. */
-        .icon {
-        height:16px;
-        width:16px;
-        margin: 0 1px;
-        background-image: url(editorImg/toolbar_icons.gif);
-        background-repeat: no-repeat;
-        vertical-align: middle;
-        }
-
-        /* "Highlight" icon. */
-        .highlight-icon{
-        background-position: -64px;
-        }
-
-        /* "Insert Image" icon. */
-        .insert-image-icon {
-        background-position: -80px;
-        }
-
-        /* Custom style for the "default" button. */
-        .default-button {
-        font-weight: bold;
-        }
 
 
 
@@ -92,9 +23,6 @@
     <g:HTMLPanel styleName=" {res.editorCss.getText}">
         <div class= "left-panel">
 
-            <div id="btn1" class="goog-custom-button goog-custom-button-collapse-left"> <div >Editor</div></div>
-
-            <div id="btn2" class="goog-custom-button goog-custom-button-collapse-left goog-custom-button-collapse-left"> <div >List</div> </div>
 
             <div id="btn3" class="goog-custom-button goog-custom-button-collapse-left goog-custom-button-collapse-left"> <div >GetContent</div> </div>
 

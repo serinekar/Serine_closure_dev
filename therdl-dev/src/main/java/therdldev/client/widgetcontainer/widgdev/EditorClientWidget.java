@@ -44,29 +44,18 @@ public class EditorClientWidget extends Composite  {
 	}-*/;
 	
 
-	private native void bootStrapEditor(EditorClientWidget w) /*-{
-	    $wnd.widjdev.setEditor.leftPanelsetup('btn1', function() { w.@therdldev.client.widgetcontainer.widgdev.EditorClientWidget::btnEditorClick()() });
-        $wnd.widjdev.setEditor.leftPanelsetup('btn2', function() { w.@therdldev.client.widgetcontainer.widgdev.EditorClientWidget::btnListClick()() });
-        $wnd.widjdev.setEditor.leftPanelsetup('btn3', function() { w.@therdldev.client.widgetcontainer.widgdev.EditorClientWidget::btnGetContentClick()() });
+	private native void bootStrapEditor(EditorClientWidget w ) /*-{
+
+         $wnd.widjdev.setEditor.leftPanelsetup('btn3', function() { w.@therdldev.client.widgetcontainer.widgdev.EditorClientWidget::btnGetContentClick()() });
         $wnd.widjdev.setEditor.leftPanelsetup('btn4', function() { w.@therdldev.client.widgetcontainer.widgdev.EditorClientWidget::btnSetContentClick()() });
 
-	    var dialog1 = new $wnd.widjdev.Dialog();
+	      var dialog1 = new $wnd.widjdev.Dialog();
         $wnd.widjdev.Dialog.setDialog();
+
 
 	}-*/;
 
-    // now will call setEditorWidjet()
-    public void btnEditorClick() {
-        Window.alert("Editor");
 
-
-
-    }
-    public void btnListClick() {
-
-        Window.alert("List");
-
-    }
     public void btnGetContentClick() {
         String contents = getContent();
 
@@ -82,10 +71,7 @@ public class EditorClientWidget extends Composite  {
 
     private native void getEditor() /*-{
 
-
-			$wnd.dialog1.setVisible(true);
-
-
+      $wnd.document.getElementById('editorDiv').display= 'block';
     }-*/;
 
 
@@ -103,7 +89,7 @@ public class EditorClientWidget extends Composite  {
 
 
     private native void hideEditor() /*-{
-    $wnd.document.getElementById('editorview').display= 'none';
+    $wnd.document.getElementById('editorDiv').display= 'none';
 
 
     }-*/;

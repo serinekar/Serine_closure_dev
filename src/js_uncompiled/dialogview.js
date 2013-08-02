@@ -92,10 +92,7 @@ widjdev.Dialog.setDialog =  function () {
  	    combo1.render(divcombo1);
     	goog.events.listen(combo1, 'change', handleChangeEvent);
     	
-    	
-    	
-    	   widjdev.setEditor.leftPanelsetup('btn1', function() {alert("Editor")} );
-				 widjdev.setEditor.leftPanelsetup('btn2', function() {alert("List")} );
+  
          widjdev.setEditor.leftPanelsetup('btn3', function() {
          alert( widjdev.setEditor.getcontents());
          } );
