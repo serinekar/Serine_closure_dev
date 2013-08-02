@@ -16,6 +16,12 @@ lib/closure/bin/build/closurebuilder.py --root=lib/ --root=js_uncompiled/ --name
 lib/closure/bin/build/closurebuilder.py --root=lib/ --root=js_uncompiled/ --namespace="widjdev.Dialog" --output_mode=compiled --compiler_jar=compiler.jar --compiler_flags="--compilation_level=SIMPLE_OPTIMIZATIONS"  >  js/dialogview.js 
 
 
+// list root initilal code
+lib/closure/bin/build/closurebuilder.py --root=lib/ --root=js_uncompiled/ --namespace="widjdev.list" --output_mode=compiled --compiler_jar=compiler.jar --compiler_flags="--compilation_level=SIMPLE_OPTIMIZATIONS"  >  js/widjdevList.js 
+
+// list constructor initilal code
+lib/closure/bin/build/closurebuilder.py --root=lib/ --root=js_uncompiled/ --namespace="widjdev.list.Row" --output_mode=compiled --compiler_jar=compiler.jar --compiler_flags="--compilation_level=SIMPLE_OPTIMIZATIONS"  >  js/widjdevList.js 
+
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1 Dependency Writer Scripts !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1 //
 
