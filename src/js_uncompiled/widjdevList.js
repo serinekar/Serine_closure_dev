@@ -114,7 +114,7 @@ widjdev.list.Row.prototype.makeDom = function() {
 widjdev.list.Row.prototype.makeActionButton = function(task, element, target, name) {
     var button = new goog.ui.CustomButton(name);
 
-    button.addClassName('taskButton');
+    button.addClassName('rowButton');
 
     button.render(element.childNodes[0]);
 
@@ -135,7 +135,7 @@ widjdev.list.Row.prototype.makeEditorButton = function(element, name, callback) 
 
 
 widjdev.list.Row.prototype.makeButtons = function(row, element) {
-    if (row.parent.id == 'tab1') {
+    if (row.parent.id == 'snipList') {
         this.makeActionButton(row, element, 'completed', 'Done');
         this.makeActionButton(row, element, 'deleted', 'Delete');
     }
@@ -145,8 +145,6 @@ widjdev.list.Row.prototype.makeButtons = function(row, element) {
     this.makeEditorButton(element, 'Save', this.save);
     this.makeEditorButton(element, 'Cancel', this.closeEditor);
 }
-
-
 
 
 widjdev.list.makeRows = function(name, data, container) {
