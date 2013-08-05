@@ -15,27 +15,21 @@
       body { padding: 0; margin: 0; font-family: arial; }
       h1 { color: #666; background: #ddd; padding: 1em; margin: 0; }
       h2 { font-size: 22px; }
-      textarea { padding: 0.5em; margin: 0.2em; width: 99%; height: 10em; border: solid 1px; }
+      textarea { padding: 0.5em; margin: 0.2em; width: 40%; height: 6em; border: solid 1px; }
       input { margin: 0.5em; }
+      #menu { margin:10px; padding-left: 10px; width:70%;  }
+      div.goog-toolbar-button { margin-left:10px;     }
 
-      #snipList, #tab1, #tab2, #tab3 { border-top: solid 1px #333; }
-      #tab1{ display: none; }
+      #tab1, #tab2, #tab3 { border: solid 1px #333; margin:10px 20px 0 40px; padding-left: 10px;   }
+      #tab1 { display: none; }
       #tab2 { display: none; }
-      #tab3 { display: none; padding: 1em; }
-
-
-
+      #tab3 { display: none; }
+ 
       .empty { text-align: center; margin: 2em; }
 
-      .row { border: solid 1px #333; border-top: none; }
-      .row  .summary, .row .description { padding: 0.5em; }
-      .row  .summary { font-weight: bold; font-size: 18px; }
-      .row  .description { background: #eee; border-top: solid 1px #333; }
-
-      .rowButton { float: right; margin-top: -3px; margin-left: 7px; }
-      .editorButton { margin: 0.2em 0.3em 0.5em; }
-
-
+      .row { border: solid 1px #333;  width:60%;  }
+      .row  .summary, .row .description { padding: 0.5em; width:50%;  }
+      .row  .summary { font-weight: normal; font-size: 12px; }
 
 
 
@@ -56,29 +50,41 @@
 <script>
 function main() {
 
+ // header tabs
  var menu = document.getElementById('menu');
+ 
  widjdev.list.attachToolbar(menu);
  
-  var makeRowData = function(summary, description, priority) {
-              return { 'summary': summary, 'description': description, 'priority': priority };
+ //container for the rows
+ var rowList = document.getElementById('snipList');
+ 
+ // called when we make the rows below
+ var makeRowData = function(summary, description, priority) {
+              return { 'summary': summary, 'description': description };
           };
  
- 	 var rowList = document.getElementById('snipList');
+ //make the rows 
+ widjdev.list.makeRows('active', [
+              makeRowData("Header first row widgets here", "header second row widgets here"),  makeRowData("Header first row widgets here", "header second row widgets here"),
+              makeRowData("Header first row widgets here", "header second row widgets here")], rowList );
+              
+              
+              
  
-    widjdev.list.makeRows('active', [
-              makeRowData("Make the toolbar actually do something.", "Need more studying of Toolbar demo.", 99),
-              makeRowData("Make tasks editable.", "Like in the Closure Library Notes tutorial.", 88),
-              makeRowData("Create different task lists.", "One for active tasks, another for completed ones and finally a list containing deleted tasks.", 100)
-              ], rowList);
- 
-   var completedRowList = document.getElementById('tab1');
-          widjdev.list.makeRows('completed', [], completedRowList);
-
-   var deletedRowList = document.getElementById('tab2');
-          widjdev.list.makeRows('deleted', [{ 'summary': 'test', 'description': 'test', 'priority': 1 }], deletedRowList);
   
 }
 main();
 </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,29 @@
+<html>
+  <head>
+  
+    <script src="js/buttonbar.x.js"></script>
+	<link rel="stylesheet" href="editorCss/left-panel.css">
+  </head>
+  <body>
+
+    <div class= "left-panel">
+
+	<div id="btn1" class="goog-custom-button goog-custom-button-collapse-left"> <div >Editor</div></div> 
+	
+	<div id="btn2" class="goog-custom-button goog-custom-button-collapse-left goog-custom-button-collapse-left"> <div >List</div> </div>
+
+	<div id="btn3" class="goog-custom-button goog-custom-button-collapse-left goog-custom-button-collapse-left"> <div >GetContent</div> </div> 
+
+ 	<div id="btn4" class="goog-custom-button goog-custom-button-collapse-left goog-custom-button-collapse-left"> <div >SetContent</div> </div> 
+       
+    </div> 
+
+    <script type="text/javascript">
+        buttonbar.setup('btn1', function() {alert("Editor")} );
+        buttonbar.setup('btn2', function() {alert("List")} );
+  	buttonbar.setup('btn3', function() {alert("GetContent")} );
+  	buttonbar.setup('btn4', function() {alert("SetContent")} );
+
+    </script>
+  </body>
+</html>

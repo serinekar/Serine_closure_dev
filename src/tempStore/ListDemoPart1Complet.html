@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>widjdev.list</title>
+<script type="text/javascript" src="js/rdl-deps.js"></script>
+<script type="text/javascript" src="js/widjdevList.js"></script>
+  <link rel="stylesheet" href="editorCss/common.css">
+  <link rel="stylesheet" href="editorCss/demo.css">
+  <link rel="stylesheet" href="editorCss/button.css"/>
+  <link rel="stylesheet" href="editorCss/tab.css" />
+  <link rel="stylesheet" href="editorCss/tabbar.css" />
+  <link rel="stylesheet" href="editorCss/toolbar.css" />
+     
+  <style type="text/css">
+      body { padding: 0; margin: 0; font-family: arial; }
+      h1 { color: #666; background: #ddd; padding: 1em; margin: 0; }
+      h2 { font-size: 22px; }
+      textarea { padding: 0.5em; margin: 0.2em; width: 99%; height: 10em; border: solid 1px; }
+      input { margin: 0.5em; }
+
+      #snipList, #tab1, #tab2, #tab3 { border-top: solid 1px #333; }
+      #tab1{ display: none; }
+      #tab2 { display: none; }
+      #tab3 { display: none; padding: 1em; }
+
+
+
+      .empty { text-align: center; margin: 2em; }
+
+      .row { border: solid 1px #333; border-top: none; }
+      .row  .summary, .row .description { padding: 0.5em; }
+      .row  .summary { font-weight: bold; font-size: 18px; }
+      .row  .description { background: #eee; border-top: solid 1px #333; }
+
+      .rowButton { float: right; margin-top: -3px; margin-left: 7px; }
+      .editorButton { margin: 0.2em 0.3em 0.5em; }
+
+
+
+
+
+    </style>
+ 
+  
+</head>
+<body>
+<div id="menu"></div>
+  <div id="snipList"></div>
+  <div id="tab1"></div>
+  <div id="tab2"></div>
+  <div id="tab3"></div>
+  
+<div id="rows">
+</div>
+
+<script>
+function main() {
+
+ var menu = document.getElementById('menu');
+ widjdev.list.attachToolbar(menu);
+ 
+  var makeRowData = function(summary, description, priority) {
+              return { 'summary': summary, 'description': description, 'priority': priority };
+          };
+ 
+ 	 var rowList = document.getElementById('snipList');
+ 
+    widjdev.list.makeRows('active', [
+              makeRowData("Make the toolbar actually do something.", "Need more studying of Toolbar demo.", 99),
+              makeRowData("Make tasks editable.", "Like in the Closure Library Notes tutorial.", 88),
+              makeRowData("Create different task lists.", "One for active tasks, another for completed ones and finally a list containing deleted tasks.", 100)
+              ], rowList);
+ 
+   var completedRowList = document.getElementById('tab1');
+          widjdev.list.makeRows('completed', [], completedRowList);
+
+   var deletedRowList = document.getElementById('tab2');
+          widjdev.list.makeRows('deleted', [{ 'summary': 'test', 'description': 'test', 'priority': 1 }], deletedRowList);
+  
+}
+main();
+</script>
+</body>
+</html>
