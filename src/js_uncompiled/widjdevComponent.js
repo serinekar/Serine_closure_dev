@@ -3,7 +3,7 @@
  *  add methods to create custom controls, SEE 	LINE 94
  */
  
-goog.provide('widjdev.Component');
+goog.provide('widjdev.Component'); // this code is used as a dependency in the editor and list widgets
 
 goog.require('goog.dom');
 goog.require('goog.dom.classes');

@@ -19,10 +19,10 @@ lib/closure/bin/build/closurebuilder.py --root=lib/ --root=js_uncompiled/ --name
 // list root initilal code
 lib/closure/bin/build/closurebuilder.py --root=lib/ --root=js_uncompiled/ --namespace="widjdev.list" --output_mode=compiled --compiler_jar=compiler.jar --compiler_flags="--compilation_level=SIMPLE_OPTIMIZATIONS"  >  js/widjdevList.js 
 
-
+// these are the complier scripts used to buid the application/widgets
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1 Dependency Writer Scripts !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1 //
 
-
+// this is the dependency managemnet script
 lib/closure/bin/build/depswriter.py --root_with_prefix="js_uncompiled ../../../js_uncompiled" > js/rdl-deps.js
 

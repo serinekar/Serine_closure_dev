@@ -30,6 +30,7 @@ goog.require('goog.ui.FlatButtonRenderer');
 goog.require('goog.ui.LinkButtonRenderer');
 goog.require('goog.ui.ToggleButton');
 goog.require('goog.ui.decorate');
+// customcomponents
 goog.require('widjdev.Component');
 goog.require('widjdev.setEditor'); 
 

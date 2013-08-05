@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+<!DOCTYPE html> <!-- this is the src for the html -->
 <html>
 <head>
 <title>widjdev.list</title>
-<script type="text/javascript" src="js/rdl-deps.js"></script>
-<script type="text/javascript" src="js/widjdevList.js"></script>
+<script type="text/javascript" src="js/rdl-deps.js"></script><!-- all the dependedcies are manage here by closure magic -->
+<script type="text/javascript" src="js/widjdevList.js"></script><!-- note the widgdevComponent is not imported -->
   <link rel="stylesheet" href="editorCss/common.css">
   <link rel="stylesheet" href="editorCss/demo.css">
   <link rel="stylesheet" href="editorCss/button.css"/>
@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="editorCss/tabbar.css" />
   <link rel="stylesheet" href="editorCss/toolbar.css" />
      
-  <style type="text/css">
+  <style type="text/css">   <!-- embedded style -->
       body { padding: 0; margin: 0; font-family: arial; }
       h1 { color: #666; background: #ddd; padding: 1em; margin: 0; }
       h2 { font-size: 22px; }
@@ -20,7 +20,7 @@
       #menu { margin:10px; padding-left: 10px; width:70%;  }
       div.goog-toolbar-button { margin-left:10px;     }
 
-      #tab1, #tab2, #tab3 { border: solid 1px #333; margin:10px 20px 0 40px; padding-left: 10px;   }
+      #tab1, #tab2, #tab3 {  margin:10px 20px 0 40px; padding-left: 10px;   }
       #tab1 { display: none; }
       #tab2 { display: none; }
       #tab3 { display: none; }
@@ -30,15 +30,18 @@
       .row { border: solid 1px #333;  width:60%;  }
       .row  .summary, .row .description { padding: 0.5em; width:50%;  }
       .row  .summary { font-weight: normal; font-size: 12px; }
-
-
+		
+		div.customControl11 { margin:10px; display:inline-block; }
+		div.customControl12 { margin:10px; display:inline-block; }
+		div.customControl21 { margin:10px; display:inline-block; }
+		div.customControl22 { margin:10px; display:inline-block; }
 
     </style>
  
   
 </head>
 <body>
-<div id="menu"></div>
+<div id="menu"></div>  <!-- html tags -->
   <div id="snipList"></div>
   <div id="tab1"></div>
   <div id="tab2"></div>
@@ -48,7 +51,7 @@
 </div>
 
 <script>
-function main() {
+function main() {  // boot up js, this will be JSNI in the gwt
 
  // header tabs
  var menu = document.getElementById('menu');
@@ -59,18 +62,12 @@ function main() {
  var rowList = document.getElementById('snipList');
  
  // called when we make the rows below
- var makeRowData = function(summary, description, priority) {
-              return { 'summary': summary, 'description': description };
-          };
+ var makeRowData = function(summary, description, priority) {  return { 'summary': summary, 'description': description }; };
  
  //make the rows 
- widjdev.list.makeRows('active', [
-              makeRowData("Header first row widgets here", "header second row widgets here"),  makeRowData("Header first row widgets here", "header second row widgets here"),
-              makeRowData("Header first row widgets here", "header second row widgets here")], rowList );
-              
-              
-              
- 
+ widjdev.list.makeRows('active', [ makeRowData("Header first row", "header second row"),  makeRowData("Header first row", "header second row"),
+              makeRowData("Header first row", "header second row")], rowList );
+
   
 }
 main();
