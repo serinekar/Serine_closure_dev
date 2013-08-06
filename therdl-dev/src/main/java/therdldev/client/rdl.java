@@ -6,6 +6,7 @@ import com.google.gwt.dom.client.Style;
 import com.google.gwt.user.client.ui.*;
 import therdldev.client.widgetcontainer.WidgetContainer;
 import therdldev.client.widgetcontainer.widgdev.EditorClientWidget;
+import therdldev.client.widgetcontainer.widgdev.EditorListWidget;
 import therdldev.client.widgetcontainer.widgdev.LeftPanelWidget;
 
 
@@ -22,7 +23,7 @@ public class rdl implements EntryPoint {
 
       sLogger .info("Closure Widget Development onModuleLoad");
 
-       String shtml  ="<h1> this is test code to wire up display checks</h1>";
+       String shtml  ="<h1> this is test code to check wire up display</h1>";
 
       wrappingLayoutPanel = new WidgetContainer();
 
@@ -34,9 +35,10 @@ public class rdl implements EntryPoint {
       HTML html = new HTML();
       html.setHTML(shtml);
       EditorClientWidget closureEditor = new EditorClientWidget();
+      EditorListWidget closureList = new EditorListWidget();
 
-      wrappingLayoutPanel.addWidget(closureEditor);
-      closureEditor.setVisible(true);
+      wrappingLayoutPanel.addWidget(closureList);
+      closureList.setVisible(true);
 
     }
 

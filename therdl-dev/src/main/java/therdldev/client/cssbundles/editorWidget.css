@@ -5,6 +5,31 @@ body {
   font: normal 10pt Arial, sans-serif;
 }
 
+ /* List Widget   */
+
+      textarea { padding: 0.5em; margin: 0.2em; width: 40%; height: 6em; border: solid 1px; }
+      input { margin: 0.5em; }
+      #menu { margin:10px; padding-left: 10px; width:70%;  }
+      div.goog-toolbar-button { margin-left:10px;     }
+
+      #tab1, #tab2, #tab3 {  margin:10px 20px 0 40px; padding-left: 10px;   }
+      #tab1 { display: none; }
+      #tab2 { display: none; }
+      #tab3 { display: none; }
+
+      .empty { text-align: center; margin: 2em; }
+
+      .row { border: solid 1px #333;  width:60%;  }
+      .row  .summary, .row .description { padding: 0.5em; width:50%;  }
+      .row  .summary { font-weight: normal; font-size: 12px; }
+
+	  div.customControl11 { margin:10px; display:inline-block; }
+      div.customControl12 { margin:10px; display:inline-block; }
+	  div.customControl21 { margin:10px; display:inline-block; }
+	  div.customControl22 { margin:10px; display:inline-block; }
+
+
+/*   Editor widget  */
  div.left-panel {
      position: relative; /* Enable absolute positioning for children and pseudo elements */
      width: 200px;

@@ -34,6 +34,7 @@ public class LeftPanelWidget  extends Composite {
         this.setVisible(true);
     }
 
+    // JSNI set up code
     private native void  bootStrapPanel(LeftPanelWidget w) /*-{
 
         $wnd.widjdev.init.leftPanelsetup('btn1', function() { w.@therdldev.client.widgetcontainer.widgdev.LeftPanelWidget::btnEditorClick()() });
