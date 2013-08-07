@@ -37,7 +37,7 @@ public class rdl implements EntryPoint {
       EditorClientWidget closureEditor = new EditorClientWidget();
       EditorListWidget closureList = new EditorListWidget();
 
-      wrappingLayoutPanel.addWidget(closureList);
+      wrappingLayoutPanel.addWidget(closureEditor);
       closureList.setVisible(true);
 
     }

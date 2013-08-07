@@ -42,7 +42,7 @@ public class EditorClientWidget extends Composite  {
 	public static native String getUserAgent() /*-{
 			return navigator.userAgent.toLowerCase();
 	}-*/;
-	
+
 
 	private native void bootStrapEditor(EditorClientWidget w ) /*-{
 
