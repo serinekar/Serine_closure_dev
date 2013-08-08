@@ -1,6 +1,7 @@
 package therdldev.client.widgetcontainer.widgdev;
 
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.core.client.ScriptInjector;
 import com.google.gwt.dom.client.SpanElement;
 import com.google.gwt.dom.client.Style;
 import com.google.gwt.uibinder.client.UiBinder;
@@ -35,16 +36,35 @@ public class EditorClientWidget extends Composite  {
     @Override
     protected void onLoad() {
         super.onLoad();
+        injectScript();
         bootStrapEditor(this);
         this.setVisible(true);
     }
-	
-	public static native String getUserAgent() /*-{
-			return navigator.userAgent.toLowerCase();
-	}-*/;
+
+    @Override
+    protected void onUnload() {
+        super.onUnload();
+        resetDom();
+
+    }
+
+    private void injectScript() {
 
 
-	private native void bootStrapEditor(EditorClientWidget w ) /*-{
+        ScriptInjector.fromString(Resources.INSTANCE.dialogView().getText()).setWindow(ScriptInjector.TOP_WINDOW).inject();
+
+    }
+
+
+    private native final boolean isInjected() /*-{
+    if (!(typeof $wnd.widjdev.Dialog === "undefined") && !(null===$wnd.widjdev.Dialog) ) {
+        return true;
+    }
+    return false;
+    }-*/;
+
+
+    private native void bootStrapEditor(EditorClientWidget w ) /*-{
 
          $wnd.widjdev.setEditor.leftPanelsetup('btn3', function() { w.@therdldev.client.widgetcontainer.widgdev.EditorClientWidget::btnGetContentClick()() });
         $wnd.widjdev.setEditor.leftPanelsetup('btn4', function() { w.@therdldev.client.widgetcontainer.widgdev.EditorClientWidget::btnSetContentClick()() });
@@ -54,6 +74,13 @@ public class EditorClientWidget extends Composite  {
 
 
 	}-*/;
+
+    private native void resetDom() /*-{
+
+         console.log($wnd.widjdev.Dialog);
+         $wnd.widjdev.Dialog = null;
+
+    }-*/;
 
 
     public void btnGetContentClick() {

@@ -2,6 +2,7 @@ package therdldev.client.widgetcontainer.widgdev;
 
 
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.core.client.ScriptInjector;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Widget;
@@ -25,14 +26,46 @@ public class EditorListWidget  extends Composite {
     @Override
     protected void onLoad() {
         super.onLoad();
+        injectScript();
         bootStrapList(this);
         this.setVisible(true);
     }
 
+
+    @Override
+    protected void onUnload() {
+        super.onUnload();
+        resetDom();
+
+    }
+
+    private void injectScript() {
+
+
+            ScriptInjector.fromString(Resources.INSTANCE.widjdevList().getText()).setWindow(ScriptInjector.TOP_WINDOW).inject();
+
+    }
+
+
+    private native final boolean isInjected() /*-{
+    if (!(typeof $wnd.widjdev.list === "undefined") && !(null===$wnd.widjdev.list)) {
+        return true;
+    }
+    return false;
+    }-*/;
+
+
+    private native void resetDom() /*-{
+
+      console.log($wnd.widjdev.list );
+       $wnd.widjdev.list = null;
+    }-*/;
+
+
     // JSNI set up code
     private native void  bootStrapList(EditorListWidget w ) /*-{
 
-              // header tabs
+         // header tabs
          var menu = document.getElementById('menu');
 
          $wnd.widjdev.list.attachToolbar(menu);

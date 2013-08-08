@@ -4,6 +4,7 @@ package therdldev.client;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.dom.client.Style;
 import com.google.gwt.user.client.ui.*;
+import therdldev.client.widgetcontainer.AppMenu;
 import therdldev.client.widgetcontainer.WidgetContainer;
 import therdldev.client.widgetcontainer.widgdev.EditorClientWidget;
 import therdldev.client.widgetcontainer.widgdev.EditorListWidget;
@@ -32,16 +33,26 @@ public class rdl implements EntryPoint {
       RootLayoutPanel rp = RootLayoutPanel.get();
       rp.add(wrappingLayoutPanel);
 
-      HTML html = new HTML();
-      html.setHTML(shtml);
-      EditorClientWidget closureEditor = new EditorClientWidget();
-      EditorListWidget closureList = new EditorListWidget();
+      setHeader();
 
-      wrappingLayoutPanel.addWidget(closureEditor);
-      closureList.setVisible(true);
+  }
 
+
+    public void setcenterPanel(Composite c) {
+
+        wrappingLayoutPanel.addWidget(c);
+
+        c.setVisible(true);
+    }
+
+    public void setHeader() {
+
+        AppMenu menu = new AppMenu(this);
+        wrappingLayoutPanel.addHeader(menu );
+        menu.setVisible(true);
     }
 
 
-  }
+
+}
 

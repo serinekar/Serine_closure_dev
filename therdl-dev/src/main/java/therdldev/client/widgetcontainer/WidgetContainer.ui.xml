@@ -4,27 +4,31 @@
 
     <ui:style>
 
-
-        .eastPanel {
-        background-color: #F60;
-        }
-        .westPanel {
-
-        }
         .northPanel {
+        position:realtive;
+        margin:0px 0px 30px 10px;
+        top:0px;
+        height:60px;
+        display:block;
         background-color: #39F;
         }
-        .southPanel {
-        background-color: #99C;
-        }
+
         .centerPanel {
+        position:realtive;
+        margin:10px 0px  0px 10px;
+        top:66px;
+        display:block;
         background-color: #FFC;
         }
     </ui:style>
 
-            <g:FlowPanel ui:field= "widgBox" styleName="{style.centerPanel}">
+    <g:HTMLPanel >
+        <span class="{style.northPanel}">
+        <g:HTMLPanel  ui:field= "header"  />  </span>
+        <span class="{style.centerPanel}">
+        <g:FlowPanel  ui:field= "widgBox"   /> </span>
 
-            </g:FlowPanel>
+    </g:HTMLPanel>
 
 
 </ui:UiBinder>

@@ -3,20 +3,10 @@ package therdldev.client.widgetcontainer;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
-import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.client.ui.FlowPanel;
-import com.google.gwt.user.client.ui.TextBox;
-import com.google.gwt.user.client.ui.Widget;
+import com.google.gwt.user.client.ui.*;
 import therdldev.client.widgetcontainer.widgdev.EditorClientWidget;
 import therdldev.client.widgetcontainer.widgdev.LeftPanelWidget;
 
-/**
- * Created with IntelliJ IDEA.
- * User: n
- * Date: 7/22/13
- * Time: 2:36 AM
- * To change this template use File | Settings | File Templates.
- */
 public class WidgetContainer  extends Composite {
 
 
@@ -26,6 +16,8 @@ public class WidgetContainer  extends Composite {
     }
 
 
+    @UiField
+    HTMLPanel header;
     @UiField
     FlowPanel widgBox;
 
@@ -38,8 +30,16 @@ public class WidgetContainer  extends Composite {
     }
 
     public void addWidget(Composite c) {
-
+        System.out.println( "widgBox.getWidgetCount() "+widgBox.getWidgetCount() );
+        widgBox.clear();
         widgBox.add(c);
+    }
+
+    public void addHeader(Composite c) {
+        header.clear();
+        header.add(c);
+        header.setVisible(true);
+        c.setVisible(true);
     }
 
 
