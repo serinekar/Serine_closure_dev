@@ -4,30 +4,43 @@ body {
   background-color: #ffe;
   font: normal 10pt Arial, sans-serif;
 }
+  /*  List widget  */
+        textarea { padding: 0.5em; margin: 0.2em; width: 40%; height: 6em; border: solid 1px; }
+         input { margin: 0.5em; }
+         #menu { position:relative; display:inline-block; margin:10px; padding-left: 10px; width:70%;  }
 
- /* List Widget   */
+         div.goog-toolbar-button { margin:20px;     }
 
-      textarea { padding: 0.5em; margin: 0.2em; width: 40%; height: 6em; border: solid 1px; }
-      input { margin: 0.5em; }
-      #menu { margin:10px; padding-left: 10px; width:70%;  }
-      div.goog-toolbar-button { margin-left:10px;     }
+         #tab1, #tab2, #tab3 {  margin:10px 20px 0 40px; padding-left: 10px;   }
+         #tab1 { display: none; }
+         #tab2 { display: none; }
+         #tab3 { display: none; }
 
-      #tab1, #tab2, #tab3 {  margin:10px 20px 0 40px; padding-left: 10px;   }
-      #tab1 { display: none; }
-      #tab2 { display: none; }
-      #tab3 { display: none; }
+         .empty { text-align: center; margin: 2em; }
 
-      .empty { text-align: center; margin: 2em; }
+         .row { border: solid 1px #333;  width:60%;  }
+         .row  .summary, .row .description { padding: 0.5em; width:50%;  }
+         .row  .summary { font-weight: normal; font-size: 12px; }
 
-      .row { border: solid 1px #333;  width:60%;  }
-      .row  .summary, .row .description { padding: 0.5em; width:50%;  }
-      .row  .summary { font-weight: normal; font-size: 12px; }
+         div.customControl11 { margin:10px; display:inline-block; }
+         div.customControl12 { margin:10px; display:inline-block; }
+         div.customControl21 { margin:10px; display:inline-block; }
+         div.customControl22 { margin:10px; display:inline-block; }
 
-	  div.customControl11 { margin:10px; display:inline-block; }
-      div.customControl12 { margin:10px; display:inline-block; }
-	  div.customControl21 { margin:10px; display:inline-block; }
-	  div.customControl22 { margin:10px; display:inline-block; }
 
+
+.goog-toolbar {
+  /* Client apps may override the URL at which they serve the image. */
+  background: #fafafa url(editorImg/toolbar-bg.png) repeat-x bottom left;
+  border-bottom: 1px solid #d5d5d5;
+  cursor: default;
+  font: normal 12px Arial, sans-serif;
+  margin:20px;
+  outline: none;
+  padding: 2px;
+  position: absolute;
+  zoom: 1; /* The toolbar element must have layout on IE. */
+}
 
 /*   Editor widget  */
  div.left-panel {
@@ -895,10 +908,10 @@ div.tr_multi_bubble div.tr_bubble_panel {
   border-bottom: 1px solid #d5d5d5;
   cursor: default;
   font: normal 12px Arial, sans-serif;
-  margin: 0;
+  margin:20px;
   outline: none;
   padding: 2px;
-  position: relative;
+  position: absolute;
   zoom: 1; /* The toolbar element must have layout on IE. */
 }
 

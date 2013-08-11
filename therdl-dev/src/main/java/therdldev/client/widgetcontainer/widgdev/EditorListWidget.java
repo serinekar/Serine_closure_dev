@@ -36,6 +36,7 @@ public class EditorListWidget  extends Composite {
     protected void onUnload() {
         super.onUnload();
         resetDom();
+        doDetachChildren();
 
     }
 

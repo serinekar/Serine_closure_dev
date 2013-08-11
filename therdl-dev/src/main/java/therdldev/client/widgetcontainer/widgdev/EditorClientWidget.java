@@ -45,6 +45,7 @@ public class EditorClientWidget extends Composite  {
     protected void onUnload() {
         super.onUnload();
         resetDom();
+        doDetachChildren();
 
     }
 
@@ -66,10 +67,10 @@ public class EditorClientWidget extends Composite  {
 
     private native void bootStrapEditor(EditorClientWidget w ) /*-{
 
-         $wnd.widjdev.setEditor.leftPanelsetup('btn3', function() { w.@therdldev.client.widgetcontainer.widgdev.EditorClientWidget::btnGetContentClick()() });
+        $wnd.widjdev.setEditor.leftPanelsetup('btn3', function() { w.@therdldev.client.widgetcontainer.widgdev.EditorClientWidget::btnGetContentClick()() });
         $wnd.widjdev.setEditor.leftPanelsetup('btn4', function() { w.@therdldev.client.widgetcontainer.widgdev.EditorClientWidget::btnSetContentClick()() });
 
-	      var dialog1 = new $wnd.widjdev.Dialog();
+	    var dialog1 = new $wnd.widjdev.Dialog();
         $wnd.widjdev.Dialog.setDialog();
 
 
