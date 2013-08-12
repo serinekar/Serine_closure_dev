@@ -57,6 +57,27 @@ public class EditorListWidget  extends Composite {
 
 
     private native void resetDom() /*-{
+         var toolbars  = $doc.getElementsByClassName('goog-toolbar');
+
+         if (toolbars) { alert('some toollbars' +toolbars.length);
+
+           while(toolbars.length > 0){
+                toolbars[0].parentNode.removeChild(toolbars[0]);
+                 }
+
+         }
+
+        var popUps  = $doc.getElementsByClassName('modal-dialog');
+
+                if (popUps) { alert('some popUps' +popUps.length)
+
+           while(popUps.length > 0){
+                popUps[0].parentNode.removeChild(popUps[0]);
+                 }
+
+         }
+
+
 
       console.log($wnd.widjdev.list );
        $wnd.widjdev.list = null;

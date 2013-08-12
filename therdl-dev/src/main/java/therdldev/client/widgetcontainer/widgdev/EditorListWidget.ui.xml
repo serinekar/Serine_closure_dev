@@ -10,8 +10,8 @@
 
         .centerPanel {
         position:relative;
-        margin:30px 0px  0px 10px;
-        top:66px;
+        margin:10px 0px  0px 10px;
+        top:10px;
         display:block;
         width:80%;
         background-color: #FFC;

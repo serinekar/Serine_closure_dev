@@ -8,9 +8,7 @@
         position:realtive;
         margin:0px 0px 30px 10px;
         top:0px;
-        height:60px;
         display:block;
-        background-color: #39F;
         }
 
         .centerPanel {

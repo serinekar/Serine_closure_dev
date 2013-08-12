@@ -23,7 +23,7 @@ public class EditorClientWidget extends Composite  {
 			UiBinder<Widget, therdldev.client.widgetcontainer.widgdev.EditorClientWidget> {
 	}
 
-
+    boolean isInjected;
 
 
 	public EditorClientWidget() {
@@ -51,16 +51,19 @@ public class EditorClientWidget extends Composite  {
 
     private void injectScript() {
 
-
+        if(!isInjected) {
         ScriptInjector.fromString(Resources.INSTANCE.dialogView().getText()).setWindow(ScriptInjector.TOP_WINDOW).inject();
-
+        isInjected = true;
+        }
     }
 
 
     private native final boolean isInjected() /*-{
     if (!(typeof $wnd.widjdev.Dialog === "undefined") && !(null===$wnd.widjdev.Dialog) ) {
+
         return true;
     }
+
     return false;
     }-*/;
 
@@ -77,6 +80,28 @@ public class EditorClientWidget extends Composite  {
 	}-*/;
 
     private native void resetDom() /*-{
+
+         var toolbars  = $doc.getElementsByClassName('goog-toolbar');
+
+         if (toolbars) { alert('some toollbars');
+
+           while(toolbars.length > 0)  {
+                toolbars[0].parentNode.removeChild(toolbars[0]);
+                 }
+
+         }
+
+
+        var popUps  = $doc.getElementsByClassName('modal-dialog');
+
+                if (popUps) { alert('some popUps' +popUps.length)
+
+           while(popUps.length > 0)  {
+                popUps[0].parentNode.removeChild(popUps[0]);
+                 }
+
+         }
+
 
          console.log($wnd.widjdev.Dialog);
          $wnd.widjdev.Dialog = null;
