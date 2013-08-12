@@ -11,7 +11,7 @@ public interface Resources extends ClientBundle {
 
 
     @CssResource.NotStrict
-	@Source("editorWidget.css")
+	@Source("closure.css")
     public CssResource editorCss();
 
     @CssResource.NotStrict

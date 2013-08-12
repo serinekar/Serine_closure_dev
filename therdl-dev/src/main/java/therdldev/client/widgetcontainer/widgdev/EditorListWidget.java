@@ -22,6 +22,7 @@ public class EditorListWidget  extends Composite {
 
     }
 
+    boolean isInjected;
 
     @Override
     protected void onLoad() {
@@ -42,18 +43,12 @@ public class EditorListWidget  extends Composite {
 
     private void injectScript() {
 
-
+        if(!isInjected) {
             ScriptInjector.fromString(Resources.INSTANCE.widjdevList().getText()).setWindow(ScriptInjector.TOP_WINDOW).inject();
-
+            isInjected = true;
+        }
     }
 
-
-    private native final boolean isInjected() /*-{
-    if (!(typeof $wnd.widjdev.list === "undefined") && !(null===$wnd.widjdev.list)) {
-        return true;
-    }
-    return false;
-    }-*/;
 
 
     private native void resetDom() /*-{
@@ -76,8 +71,6 @@ public class EditorListWidget  extends Composite {
                  }
 
          }
-
-
 
       console.log($wnd.widjdev.list );
        $wnd.widjdev.list = null;

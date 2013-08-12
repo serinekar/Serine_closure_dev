@@ -58,15 +58,6 @@ public class EditorClientWidget extends Composite  {
     }
 
 
-    private native final boolean isInjected() /*-{
-    if (!(typeof $wnd.widjdev.Dialog === "undefined") && !(null===$wnd.widjdev.Dialog) ) {
-
-        return true;
-    }
-
-    return false;
-    }-*/;
-
 
     private native void bootStrapEditor(EditorClientWidget w ) /*-{
 
@@ -101,8 +92,6 @@ public class EditorClientWidget extends Composite  {
                  }
 
          }
-
-
          console.log($wnd.widjdev.Dialog);
          $wnd.widjdev.Dialog = null;
 
