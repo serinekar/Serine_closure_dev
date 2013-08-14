@@ -20,7 +20,7 @@
 
     </ui:style>
     <!-- weird google syntax no method parenthesis in ui binder -->
-    <g:HTMLPanel styleName=" {res.editorCss.getText}">
+    <g:HTMLPanel styleName="{res.editorCss.getText}">
         <div class= "left-panel">
 
 

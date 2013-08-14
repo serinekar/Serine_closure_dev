@@ -15,8 +15,8 @@ public interface Resources extends ClientBundle {
     public CssResource editorCss();
 
     @CssResource.NotStrict
-    @Source("leftPanel.css")
-    public CssResource leftPanelCss();
+    @Source("closureList.css")
+    public CssResource listCss();
 
     @Source("widjdevList.js")
     public TextResource widjdevList();

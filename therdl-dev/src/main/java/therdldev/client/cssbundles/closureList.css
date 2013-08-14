@@ -1,512 +1,57 @@
 
-/* Common base style for all icons. */
-.tr-icon {
-  width: 16px;
-  height: 16px;
-  background: url(editorImg/editortoolbar.png) no-repeat;
-  vertical-align: middle;
-}
+  
+  		#listContainer {
+  		position:relative;
+  		display:block;
+  		margin:20px;
+  		top:40px;
+  		
+  		}
+  		
+      textarea { padding: 0.5em; margin: 0.2em; width: 40%; height: 6em; border: solid 1px; }
+      input { margin: 0.5em; }
+      
+      #menu { 
+      position:absolute;
+      display:block;
+      margin:10px; 
+      padding-left: 10px; 
+      width:70%;
+      top :40px; 
+      }                                                                                                  2wqa
+      .
+
+     div.goog-toolbar { position:absolute; top:50px;  margin-left:10px;     }
+
+     div.goog-toolbar-button { margin-left:10px;     }
+
+      #tab1, #tab2, #tab3 {  margin:10px 20px 0 40px; padding-left: 10px;   }
+      #tab1 { display: none; }
+      #tab2 { display: none; }
+      #tab3 { display: none; }
+ 
+      .empty { text-align: center; margin: 2em; }
+
+      .row {
+        position:relative;
+      	display:block;
+       	border: solid 1px #333;  
+       	width:60%; 
+       	top: 20px; }
+      
+      .row  .summary, .row .description { padding: 0.5em; width:50%;  }
+      .row  .summary { font-weight: normal; font-size: 12px; }
+		
+		div.customControl11 { margin:10px; display:inline-block; }
+		div.customControl12 { margin:10px; display:inline-block; }
+		div.customControl21 { margin:10px; display:inline-block; }
+		div.customControl22 { margin:10px; display:inline-block; }
 
-.goog-color-menu-button-indicator .tr-icon {
-  height: 14px;
-}
 
-/* Undo (redo when the chrome is right-to-left). */
-.tr-undo,
-.goog-toolbar-button-rtl .tr-redo {
-  background-position: 0;
-}
 
-/* Redo (undo when the chrome is right-to-left). */
-.tr-redo,
-.goog-toolbar-button-rtl .tr-undo {
-  background-position: -16px;
-}
 
-/* Font name. */
-.tr-fontName .goog-toolbar-menu-button-caption {
-  color: #246;
-  width: 16ex;
-  height: 16px;
-  overflow: hidden;
-}
 
-/* Font size. */
-.tr-fontSize .goog-toolbar-menu-button-caption {
-  color: #246;
-  width: 8ex;
-  height: 16px;
-  overflow: hidden;
-}
 
-/* Bold. */
-.tr-bold {
-  background-position: -32px;
-}
-
-/* Italic. */
-.tr-italic {
-  background-position: -48px;
-}
-
-/* Underline. */
-.tr-underline {
-  background-position: -64px;
-}
-
-/* Foreground color. */
-.tr-foreColor {
-  height: 14px;
-  background-position: -80px;
-}
-
-/* Background color. */
-.tr-backColor {
-  height: 14px;
-  background-position: -96px;
-}
-
-/* Link. */
-.tr-link {
-  font-weight: bold;
-  color: #009;
-  text-decoration: underline;
-}
-
-/* Insert image. */
-.tr-image {
-  background-position: -112px;
-}
-
-/* Insert drawing. */
-.tr-newDrawing {
-  background-position: -592px;
-}
-
-/* Insert special character. */
-.tr-spChar {
-  font-weight: bold;
-  color: #900;
-}
-
-/* Increase indent. */
-.tr-indent {
-  background-position: -128px;
-}
-
-/* Increase ident in right-to-left text mode, regardless of chrome direction. */
-.tr-rtl-mode .tr-indent {
-  background-position: -400px;
-}
-
-/* Decrease indent. */
-.tr-outdent {
-  background-position: -144px;
-}
-
-/* Decrease indent in right-to-left text mode, regardless of chrome direction. */
-.tr-rtl-mode .tr-outdent {
-  background-position: -416px;
-}
-
-/* Bullet (unordered) list. */
-.tr-insertUnorderedList {
-  background-position: -160px;
-}
-
-/* Bullet list in right-to-left text mode, regardless of chrome direction. */
-.tr-rtl-mode .tr-insertUnorderedList {
-  background-position: -432px;
-}
-
-/* Number (ordered) list. */
-.tr-insertOrderedList {
-  background-position: -176px;
-}
-
-/* Number list in right-to-left text mode, regardless of chrome direction. */
-.tr-rtl-mode .tr-insertOrderedList {
-  background-position: -448px;
-}
-
-/* Text alignment buttons. */
-.tr-justifyLeft {
-  background-position: -192px;
-}
-.tr-justifyCenter {
-  background-position: -208px;
-}
-.tr-justifyRight {
-  background-position: -224px;
-}
-.tr-justifyFull {
-  background-position: -480px;
-}
-
-/* Blockquote. */
-.tr-BLOCKQUOTE {
-  background-position: -240px;
-}
-
-/* Blockquote in right-to-left text mode, regardless of chrome direction. */
-.tr-rtl-mode .tr-BLOCKQUOTE {
-  background-position: -464px;
-}
-
-/* Remove formatting. */
-.tr-removeFormat {
-  background-position: -256px;
-}
-
-/* Spellcheck. */
-.tr-spell {
-  background-position: -272px;
-}
-
-/* Left-to-right text direction. */
-.tr-ltr {
-  background-position: -288px;
-}
-
-/* Right-to-left text direction. */
-.tr-rtl {
-  background-position: -304px;
-}
-
-/* Insert iGoogle module. */
-.tr-insertModule {
-  background-position: -496px;
-}
-
-/* Strike through text */
-.tr-strikeThrough {
-  background-position: -544px;
-}
-
-/* Subscript */
-.tr-subscript {
-  background-position: -560px;
-}
-
-/* Superscript */
-.tr-superscript {
-  background-position: -576px;
-}
-
-/* Insert drawing. */
-.tr-equation {
-  background-position: -608px;
-}
-
-/* Edit HTML. */
-.tr-editHtml {
-  color: #009;
-}
-
-/* "Format block" menu. */
-.tr-formatBlock .goog-toolbar-menu-button-caption {
-  color: #246;
-  width: 12ex;
-  height: 16px;
-  overflow: hidden;
-}
-.tr-link-dialog-explanation-text {
-  font-size: 83%;
-  margin-top: 15px;
-}
-
-.tr-link-dialog-target-input {
-  width: 98%; /* 98% prevents scroll bars in standards mode. */
-  /* Input boxes for URLs and email address should always be LTR. */
-  direction: ltr;
-}
-
-.tr-link-dialog-email-warning {
-  text-align: center;
-  color: #c00;
-  font-weight: bold;
-}
-
-.tr_pseudo-link {
- color: #00c;
- text-decoration: underline;
- cursor: pointer;
-}
-
-.goog-palette-cell .goog-palette-colorswatch {
-  border: none;
-  font-size: x-small;
-  height: 18px;
-  position: relative;
-  width: 18px;
-}
-
-.goog-palette-cell-hover .goog-palette-colorswatch {
-  border: 1px solid #fff;
-  height: 16px;
-  width: 16px;
-}
-
-.goog-palette-cell-selected .goog-palette-colorswatch {
-  /* Client apps may override the URL at which they serve the sprite. */
-  background: url(editorImg/editortoolbar.png) no-repeat -368px 0;
-  border: 1px solid #333;
-  color: #fff;
-  font-weight: bold;
-  height: 16px;
-  width: 16px;
-}
-
-.goog-palette-customcolor {
-  background-color: #fafafa;
-  border: 1px solid #eee;
-  color: #666;
-  font-size: x-small;
-  height: 15px;
-  position: relative;
-  width: 15px;
-}
-
-.goog-palette-cell-hover .goog-palette-customcolor {
-  background-color: #fee;
-  border: 1px solid #f66;
-  color: #f66;
-}
-
-.goog-palette {
-  cursor: default;
-  outline: none;
-}
-
-.goog-palette-table {
-  border: 1px solid #666;
-  border-collapse: collapse;
-  margin: 5px;
-}
-
-.goog-palette-cell {
-  border: 0;
-  border-right: 1px solid #666;
-  cursor: pointer;
-  height: 18px;
-  margin: 0;
-  text-align: center;
-  vertical-align: middle;
-  width: 18px;
-}
-
-/* Color indicator. */
-.goog-color-menu-button-indicator {
-  border-bottom: 4px solid #f0f0f0;
-}
-
-/* Thinner padding for color picker buttons, to leave room for the indicator. */
-.goog-color-menu-button .goog-menu-button-inner-box,
-.goog-toolbar-color-menu-button .goog-toolbar-menu-button-inner-box {
-  padding-top: 2px !important;
-  padding-bottom: 2px !important;
-}
-
-.goog-toolbar {
-  /* Client apps may override the URL at which they serve the image. */
-  background: #fafafa url(editorImg/toolbar-bg.png) repeat-x bottom left;
-  border-bottom: 1px solid #d5d5d5;
-  cursor: default;
-  font: normal 12px Arial, sans-serif;
-  margin: 0;
-  outline: none;
-  padding: 2px;
-  position: relative;
-  zoom: 1; /* The toolbar element must have layout on IE. */
-}
-
-/*
- * Styles used by goog.ui.ToolbarButtonRenderer.
- */
-
-.goog-toolbar-button {
-  margin: 0 2px;
-  border: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  color: #333;
-  text-decoration: none;
-  list-style: none;
-  vertical-align: middle;
-  cursor: default;
-  outline: none;
-}
-
-/* Pseudo-rounded corners. */
-.goog-toolbar-button-outer-box,
-.goog-toolbar-button-inner-box {
-  border: 0;
-  vertical-align: top;
-}
-
-.goog-toolbar-button-outer-box {
-  margin: 0;
-  padding: 1px 0;
-}
-
-.goog-toolbar-button-inner-box {
-  margin: 0 -1px;
-  padding: 3px 4px;
-}
-
-/* Pre-IE7 IE hack; ignored by IE7 and all non-IE browsers. */
-* html .goog-toolbar-button-inner-box {
-  /* IE6 needs to have the box shifted to make the borders line up. */
-  left: -1px;
-}
-
-/* Pre-IE7 BiDi fixes. */
-* html .goog-toolbar-button-rtl .goog-toolbar-button-outer-box {
-  /* @noflip */ left: -1px;
-}
-* html .goog-toolbar-button-rtl .goog-toolbar-button-inner-box {
-  /* @noflip */ right: auto;
-}
-
-
-/* IE7-only hack; ignored by all other browsers. */
-*:first-child+html .goog-toolbar-button-inner-box {
-  /* IE7 needs to have the box shifted to make the borders line up. */
-  left: -1px;
-}
-
-/* IE7 BiDi fix. */
-*:first-child+html .goog-toolbar-button-rtl .goog-toolbar-button-inner-box {
-  /* @noflip */ left: 1px;
-  /* @noflip */ right: auto;
-}
-
-/* Safari-only hacks. */
-::root .goog-toolbar-button,
-::root .goog-toolbar-button-outer-box {
-  /* Required to make pseudo-rounded corners work on Safari. */
-  line-height: 0;
-}
-
-::root .goog-toolbar-button-inner-box {
-  /* Required to make pseudo-rounded corners work on Safari. */
-  line-height: normal;
-}
-
-/* Disabled styles. */
-.goog-toolbar-button-disabled {
-  opacity: 0.3;
-  -moz-opacity: 0.3;
-  filter: alpha(opacity=30);
-}
-
-.goog-toolbar-button-disabled .goog-toolbar-button-outer-box,
-.goog-toolbar-button-disabled .goog-toolbar-button-inner-box {
-  /* Disabled text/border color trumps everything else. */
-  color: #333 !important;
-  border-color: #999 !important;
-}
-
-/* Pre-IE7 IE hack; ignored by IE7 and all non-IE browsers. */
-* html .goog-toolbar-button-disabled {
-  /* IE can't apply alpha to an element with a transparent background... */
-  background-color: #f0f0f0;
-  margin: 0 1px;
-  padding: 0 1px;
-}
-
-/* IE7-only hack; ignored by all other browsers. */
-*:first-child+html .goog-toolbar-button-disabled {
-  /* IE can't apply alpha to an element with a transparent background... */
-  background-color: #f0f0f0;
-  margin: 0 1px;
-  padding: 0 1px;
-}
-
-/* Only draw borders when in a non-default state. */
-.goog-toolbar-button-hover .goog-toolbar-button-outer-box,
-.goog-toolbar-button-active .goog-toolbar-button-outer-box,
-.goog-toolbar-button-checked .goog-toolbar-button-outer-box,
-.goog-toolbar-button-selected .goog-toolbar-button-outer-box {
-  border-width: 1px 0;
-  border-style: solid;
-  padding: 0;
-}
-
-.goog-toolbar-button-hover .goog-toolbar-button-inner-box,
-.goog-toolbar-button-active .goog-toolbar-button-inner-box,
-.goog-toolbar-button-checked .goog-toolbar-button-inner-box,
-.goog-toolbar-button-selected .goog-toolbar-button-inner-box {
-  border-width: 0 1px;
-  border-style: solid;
-  padding: 3px;
-}
-
-/* Hover styles. */
-.goog-toolbar-button-hover .goog-toolbar-button-outer-box,
-.goog-toolbar-button-hover .goog-toolbar-button-inner-box {
-  /* Hover border style wins over active/checked/selected. */
-  border-color: #a1badf !important;
-}
-
-/* Active/checked/selected styles. */
-.goog-toolbar-button-active,
-.goog-toolbar-button-checked,
-.goog-toolbar-button-selected {
-  /* Active/checked/selected background color always wins. */
-  background-color: #dde1eb !important;
-}
-
-.goog-toolbar-button-active .goog-toolbar-button-outer-box,
-.goog-toolbar-button-active .goog-toolbar-button-inner-box,
-.goog-toolbar-button-checked .goog-toolbar-button-outer-box,
-.goog-toolbar-button-checked .goog-toolbar-button-inner-box,
-.goog-toolbar-button-selected .goog-toolbar-button-outer-box,
-.goog-toolbar-button-selected .goog-toolbar-button-inner-box {
-  border-color: #729bd1;
-}
-
-/* Pill (collapsed border) styles. */
-.goog-toolbar-button-collapse-right,
-.goog-toolbar-button-collapse-right .goog-toolbar-button-outer-box,
-.goog-toolbar-button-collapse-right .goog-toolbar-button-inner-box {
-  margin-right: 0;
-}
-
-.goog-toolbar-button-collapse-left,
-.goog-toolbar-button-collapse-left .goog-toolbar-button-outer-box,
-.goog-toolbar-button-collapse-left .goog-toolbar-button-inner-box {
-  margin-left: 0;
-}
-
-/* Pre-IE7 IE hack; ignored by IE7 and all non-IE browsers. */
-* html .goog-toolbar-button-collapse-left .goog-toolbar-button-inner-box {
-  left: 0;
-}
-
-/* IE7-only hack; ignored by all other browsers. */
-*:first-child+html .goog-toolbar-button-collapse-left
-.goog-toolbar-button-inner-box {
-  left: 0;
-}
-
-
-/*
- * Styles used by goog.ui.ToolbarMenuButtonRenderer.
- */
-
-.goog-toolbar-menu-button {
-  margin: 0 2px;
-  border: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  color: #333;
-  text-decoration: none;
-  list-style: none;
-  vertical-align: middle;
-  cursor: default;
-  outline: none;
-}
 
 /* Pseudo-rounded corners. */
 .goog-toolbar-menu-button-outer-box,

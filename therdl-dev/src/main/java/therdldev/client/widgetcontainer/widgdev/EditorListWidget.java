@@ -16,7 +16,7 @@ public class EditorListWidget  extends Composite {
 
     public EditorListWidget() {
 
-        Resources.INSTANCE.editorCss().ensureInjected();
+        Resources.INSTANCE.listCss().ensureInjected();
 
         initWidget(uiBinder.createAndBindUi(this));
 

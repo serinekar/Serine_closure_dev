@@ -6,34 +6,21 @@
     <ui:style>
 
 
-
-
-        .centerPanel {
-        position:relative;
-        margin:10px 0px  0px 10px;
-        top:10px;
-        display:block;
-        width:80%;
-        background-color: #FFC;
-        }
-
     </ui:style>
     <!-- weird google syntax no method parenthesis in ui binder also list css embedded in editor css -->
-    <g:FlowPanel>
-    <g:HTMLPanel styleName=" {res.editorCss.getText}">
 
-        <div class="{style.centerPanel}">
+    <g:HTMLPanel styleName="{res.listCss.getText}">
 
-        <div id="menu"></div>  <!-- html tags -->
-        <div id="snipList"></div>
-        <div id="tab1"></div>
-        <div id="tab2"></div>
-        <div id="tab3"></div>
-
-        <div id="rows">
+        <div id = "listContainer">
+            <div id="menu"></div>  <!-- html tags -->
+            <div id="snipList"></div>
+            <div id="tab1"></div>
+            <div id="tab2"></div>
+            <div id="tab3"></div>
+            <div id="rows"></div>
         </div>
-        </div>
+
         -
     </g:HTMLPanel>
-    </g:FlowPanel>
+
 </ui:UiBinder>

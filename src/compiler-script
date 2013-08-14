@@ -1,3 +1,5 @@
+// these are the complier scripts used to buid the application/widgets
+
 // editor
 lib/closure/bin/build/closurebuilder.py --root=lib/ --root=js_uncompiled/ --namespace="closureeditor.init" --output_mode=compiled --compiler_jar=compiler.jar --compiler_flags="--compilation_level=ADVANCED_OPTIMIZATIONS"  > js/editorWidget.js
 
@@ -19,7 +21,11 @@ lib/closure/bin/build/closurebuilder.py --root=lib/ --root=js_uncompiled/ --name
 // list root initilal code
 lib/closure/bin/build/closurebuilder.py --root=lib/ --root=js_uncompiled/ --namespace="widjdev.list" --output_mode=compiled --compiler_jar=compiler.jar --compiler_flags="--compilation_level=SIMPLE_OPTIMIZATIONS"  >  js/widjdevList.js 
 
-// these are the complier scripts used to buid the application/widgets
+// refactored list  code
+lib/closure/bin/build/closurebuilder.py --root=lib/ --root=js_uncompiled/ --namespace="widjdev.listref" --output_mode=compiled --compiler_jar=compiler.jar --compiler_flags="--compilation_level=SIMPLE_OPTIMIZATIONS"  >  js/widjdevListRefactored.js 
+
+// tab dev code
+lib/closure/bin/build/closurebuilder.py --root=lib/ --root=js_uncompiled/ --namespace="widjdev.tabdev" --output_mode=compiled --compiler_jar=compiler.jar --compiler_flags="--compilation_level=SIMPLE_OPTIMIZATIONS"  >  js/tabdev.js 
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1 Dependency Writer Scripts !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1 //
 
