@@ -101,7 +101,7 @@ widjdev.listref.Rowref.prototype.makeDom = function() {
     // render the controls
     customControl11.render(div11);
     customControl12.render(div12);
-    // add the control to the first row by adding the dive we created
+    // add the control to the first row by adding the div we created
     this.summaryDiv = goog.dom.createDom('div', { 'class': 'summary' }, this.summary, div11, div12 );
 
     // create  custom controls for second row

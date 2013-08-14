@@ -28,7 +28,6 @@ widjdev.tabdev.setTabs= function(container) {
     var contentElement = goog.dom.getElement(topTab.getId() + '_content');
     
     // set the initial view
-    goog.dom.setTextContent(rowList,  'You have added the rows');
     contentElement.appendChild(rowList); 
     
      // called when we make the rows below
