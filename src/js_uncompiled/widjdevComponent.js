@@ -76,16 +76,16 @@ widjdev.Component.prototype.fireEvent = function(event) {
  * @override
  */
 widjdev.Component.prototype.createDom = function() {
-
-if (this.initialLabel_.indexOf("label") !== -1 )  {
+ // commented this if in order to create labels Category:, Subcategory:, Tag:
+//if (this.initialLabel_.indexOf("label") !== -1 )  {
   this.decorateInternal(this.dom_.createElement('span'));
 
-}
+//}
 
-else {
-  var cb = new goog.ui.ComboBox();
+//else {
+  //var cb = new goog.ui.ComboBox();
 
-}
+//}
 
 }
 
@@ -109,7 +109,7 @@ widjdev.Component.prototype.decorateInternal = function(element) {
 
   var elem = this.getElement();
   goog.dom.classes.add(elem, goog.getCssName('widjdev-Component'));
-  elem.style.backgroundColor = this.color_;
+ // elem.style.backgroundColor = this.color_;
 
   
   this.kh_ = new goog.events.KeyHandler(elem);

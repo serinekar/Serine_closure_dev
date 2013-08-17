@@ -33,10 +33,12 @@
   <link rel="stylesheet" href="editorCss/colorpalette.css" />
   <link rel="stylesheet" href="editorCss/linkdialog.css" />
   <link rel="stylesheet" href="editorCss/editortoolbar.css" />
+  <link rel="stylesheet" href="editorCss/autocomplete.css">
   <style>
 	.widjdev-Component {
 	 margin:10px;
 	 width:60px;
+     font-weight: bold;
 	}
 	.goog-combobox  {
    width:60px;
@@ -44,7 +46,7 @@
   	}
 	#toprowContainer {
 	 margin:10px;
-	 width:530px;
+	 width:600px;
 	 height:30px;
 	}
 	
@@ -63,7 +65,7 @@
 	
 	#secondrowContainer {
 	 margin:2px 0 2px 10px;
-	 width:530px;
+	 width:900px;
 	 height:30px;
 	
 	}
@@ -102,9 +104,12 @@
     /* Custom style for the "default" button. */
     .default-button {
   font-weight: bold;
-    }		
-		
-		
+    }
+
+    .goog-combobox input{
+        width: 130px;
+        vertical-align: baseline;
+    }
 
 </style>
 </head>
