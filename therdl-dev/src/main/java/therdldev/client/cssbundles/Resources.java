@@ -18,7 +18,7 @@ public interface Resources extends ClientBundle {
     @Source("closureList.css")
     public CssResource listCss();
 
-    @Source("widjdevList.js")
+    @Source("tabdev.js")
     public TextResource widjdevList();
 
     @Source("dialogview.js")

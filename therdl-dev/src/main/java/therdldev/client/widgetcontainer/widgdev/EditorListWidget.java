@@ -54,8 +54,7 @@ public class EditorListWidget  extends Composite {
     private native void resetDom() /*-{
          var toolbars  = $doc.getElementsByClassName('goog-toolbar');
 
-         if (toolbars) { alert('some toollbars' +toolbars.length);
-
+         if (toolbars) {
            while(toolbars.length > 0){
                 toolbars[0].parentNode.removeChild(toolbars[0]);
                  }
@@ -64,7 +63,7 @@ public class EditorListWidget  extends Composite {
 
         var popUps  = $doc.getElementsByClassName('modal-dialog');
 
-                if (popUps) { alert('some popUps' +popUps.length)
+                if (popUps) {
 
            while(popUps.length > 0){
                 popUps[0].parentNode.removeChild(popUps[0]);
@@ -72,29 +71,16 @@ public class EditorListWidget  extends Composite {
 
          }
 
-      console.log($wnd.widjdev.list );
-       $wnd.widjdev.list = null;
+      console.log($wnd.widjdev.tabdev);
+       $wnd.widjdev.tabdev = null;
     }-*/;
 
 
     // JSNI set up code
     private native void  bootStrapList(EditorListWidget w ) /*-{
 
-         // header tabs
-         var menu = document.getElementById('menu');
-
-         $wnd.widjdev.list.attachToolbar(menu);
-
-         //container for the rows
-         var rowList = $doc.getElementById('snipList');
-
-         // called when we make the rows below
-         var makeRowData = function(summary, description, priority) {  return { 'summary': summary, 'description': description }; };
-
-         //make the rows
-         $wnd.widjdev.list.makeRows('active', [ makeRowData("Header first row", "header second row"),  makeRowData("Header first row", "header second row"),
-                      makeRowData("Header first row", "header second row")], rowList );
-
+        		var menu = $doc.getElementById('menu');
+ 		        $wnd.widjdev.tabdev.setTabs(menu);
 
 	}-*/;
 

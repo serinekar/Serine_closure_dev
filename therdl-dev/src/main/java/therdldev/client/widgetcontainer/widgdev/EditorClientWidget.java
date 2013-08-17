@@ -67,14 +67,13 @@ public class EditorClientWidget extends Composite  {
 	    var dialog1 = new $wnd.widjdev.Dialog();
         $wnd.widjdev.Dialog.setDialog();
 
-
 	}-*/;
 
     private native void resetDom() /*-{
 
          var toolbars  = $doc.getElementsByClassName('goog-toolbar');
 
-         if (toolbars) { alert('some toollbars');
+         if (toolbars) {
 
            while(toolbars.length > 0)  {
                 toolbars[0].parentNode.removeChild(toolbars[0]);
@@ -82,10 +81,9 @@ public class EditorClientWidget extends Composite  {
 
          }
 
-
         var popUps  = $doc.getElementsByClassName('modal-dialog');
 
-                if (popUps) { alert('some popUps' +popUps.length)
+                if (popUps) {
 
            while(popUps.length > 0)  {
                 popUps[0].parentNode.removeChild(popUps[0]);

@@ -11,15 +11,16 @@
 
     <g:HTMLPanel styleName="{res.listCss.getText}">
 
-        <div id = "listContainer">
-            <div id="menu"></div>  <!-- html tags -->
-            <div id="snipList"></div>
-            <div id="tab1"></div>
-            <div id="tab2"></div>
-            <div id="tab3"></div>
-            <div id="rows"></div>
+        <div id="menu" class="goog-tab-bar goog-tab-bar-top">
+            <div class="goog-tab goog-tab-selected">List</div>
+            <div class="goog-tab">Closure view 1</div>
+            <div class="goog-tab">Closure view 2</div>
+            <div class="goog-tab goog-tab-disabled">Admin Panel</div>
         </div>
-
+        <!-- Use goog-tab-bar-clear to separate the tabs from the content. -->
+        <div class="goog-tab-bar-clear"></div>
+        <div id="menu_content" class="goog-tab-content">
+        </div>
         -
     </g:HTMLPanel>
 
